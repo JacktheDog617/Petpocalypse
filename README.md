@@ -9,3 +9,6 @@ Credits:
 Lead Conceptualist: Kendall Devich
 Lead Graphical Designer: Madison Ridore
 Lead Development Manager: Jaime Lee
+
+License:
+This project can be modified for personal use. Please do not distribute this application without permission from the developers.

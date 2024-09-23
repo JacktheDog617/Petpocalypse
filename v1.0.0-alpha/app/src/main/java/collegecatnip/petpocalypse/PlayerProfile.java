@@ -19,98 +19,83 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView playerName;
-    private TextView currencyInfo;
-    private TextView petsOwned;
+    private String playerNameText;
+    private int love;
+    private int treats;
+    private int petCount;
+    private int currentProfilePictureIndex = 0;
+
+    private String[] profilePictures = {"ic_profile_1", "ic_profile_2", "ic_profile_3"};
+
     private ImageView profilePicture;
     private Button selectProfilePictureButton;
 
-    private String[] profilePictures = {"ic_profile_1", "ic_profile_2", "ic_profile_3"};
-    private int currentProfilePictureIndex = 0; // tracks which profile picture is selected
-
-    private int love;   // love currency (free, earned passively)
-    private int treats; // treats currency (earned via microtransactions)
-    private int petCount; // number of pets owned
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // find views by ID
-        playerName = findViewById(R.id.player_name);
-        currencyInfo = findViewById(R.id.currency_info);
-        petsOwned = findViewById(R.id.pets_owned);
-        profilePicture = findViewById(R.id.profile_picture);
-        selectProfilePictureButton = findViewById(R.id.select_profile_picture_button);
-
-        // load saved data
+        //load saved players data 
         loadPlayerData();
-
-        playerName.setText("Player Name: John Doe");
-        updateCurrencyInfo();
-        petsOwned.setText("Pets Owned: " + petCount);
+        
+        // assign data to variables for sake of testing
+        playerNameText = "John Doe";
+        love = 500;
+        treats = 50;
+        petCount = 3;
 
         // handle profile picture selection
-        selectProfilePictureButton.setOnClickListener(v -> selectNextProfilePicture());
+        //selectProfilePictureButton.setOnClickListener(v -> selectNextProfilePicture());
 
         // set up shop button functionality
-        Button shopButton = findViewById(R.id.shop_button);
+/*      Button shopButton = findViewById(R.id.shop_button);
         shopButton.setOnClickListener(v -> {
-            // open the shop activity (to be implemented soon)
-            Intent intent = new Intent(MainActivity.this, ShopActivity.class);
+            Intent intent = new Intent(MainActivity.this, ShopActivity.class); //shop activity does not exist yet
             startActivity(intent);
         });
 
         // set up edit profile button functionality
         Button editProfileButton = findViewById(R.id.edit_profile_button);
         editProfileButton.setOnClickListener(v -> {
-            // open the edit profile activity (to be implemented soon)
-            Intent intent = new Intent(MainActivity.this, EditProfileActivity.class);
+            Intent intent = new Intent(MainActivity.this, EditProfileActivity.class); //edit profile activity does not exist yet
             startActivity(intent);
         });
     }
+*/
 
-    // logic to switch between predefined profile pictures
-    private void selectNextProfilePicture() {
+    // method to switch profile picture and save data
+/*    private void selectNextProfilePicture() {
         currentProfilePictureIndex = (currentProfilePictureIndex + 1) % profilePictures.length;
         int resId = getResources().getIdentifier(profilePictures[currentProfilePictureIndex], "drawable", getPackageName());
         profilePicture.setImageResource(resId);
-        savePlayerData(); // save the current profile picture index
+        savePlayerData(); // Save the current profile picture index
     }
-
-    // method to update the currency information text
-    private void updateCurrencyInfo() {
-        currencyInfo.setText("Love: " + love + "\nTreats: " + treats);
-    }
-
-    // save player data (including love, treats, and profile picture)
+*/
+    
+    // save player data using SharedPreferences
     private void savePlayerData() {
         SharedPreferences preferences = getSharedPreferences("player_profile", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt("love", love);
-        editor.putInt("treats", treats);
-        editor.putInt("profilePictureIndex", currentProfilePictureIndex);
-        editor.putInt("petCount", petCount);
-        editor.apply();
+        editor.putString("playerName", playerNameText);  // save player name
+        editor.putInt("love", love);  // save love currency
+        editor.putInt("treats", treats);  // save treats currency
+        editor.putInt("profilePictureIndex", currentProfilePictureIndex);  // save profile picture index
+        editor.putInt("petCount", petCount);  // save pet count
+        editor.apply();  // commit changes
     }
 
     // load player data from SharedPreferences
     private void loadPlayerData() {
         SharedPreferences preferences = getSharedPreferences("player_profile", MODE_PRIVATE);
-        love = preferences.getInt("love", 500);  // default value 500
-        treats = preferences.getInt("treats", 50); // default value 50
-        currentProfilePictureIndex = preferences.getInt("profilePictureIndex", 0);
-        petCount = preferences.getInt("petCount", 3); // default value 3
+        playerNameText = preferences.getString("playerName", "John Doe");  // load player name 
+        love = preferences.getInt("love", 500);  // load love currency
+        treats = preferences.getInt("treats", 50);  // load treats currency 
+        currentProfilePictureIndex = preferences.getInt("profilePictureIndex", 0);  // load profile picture array index
+        petCount = preferences.getInt("petCount", 3);  // load pet count 
 
         // set the profile picture based on saved index
-        int resId = getResources().getIdentifier(profilePictures[currentProfilePictureIndex], "drawable", getPackageName());
+   /*     int resId = getResources().getIdentifier(profilePictures[currentProfilePictureIndex], "drawable", getPackageName());
         profilePicture.setImageResource(resId);
     }
+
+*/
 }

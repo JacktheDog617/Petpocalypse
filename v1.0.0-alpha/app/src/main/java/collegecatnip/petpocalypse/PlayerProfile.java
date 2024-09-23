@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] profilePictures = {"ic_profile_1", "ic_profile_2", "ic_profile_3"};
 
-    private ImageView profilePicture;
+    //private ImageView profilePicture;
     private Button selectProfilePictureButton;
 
         //load saved players data 

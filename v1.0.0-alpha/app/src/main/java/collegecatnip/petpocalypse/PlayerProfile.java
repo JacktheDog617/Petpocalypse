@@ -8,9 +8,7 @@ package collegecatnip.petpocalypse;
  *
  * Last modified: 9/23/2024
  * Patch Notes:
- *      ShopActivity and EditProfileActivity are not yet openable, the functionality is there
- *      but with the advancments of the code the shop and edit profile will be expanded. Comments
- *      are staggered throughout the code to make it more understandable. Sample numbers and images
+ *      Comments are staggered throughout the code to make it more understandable. Sample numbers and images
  *      are used in order to make the code more fleshed out. SharedPreferences is implemented to
  *      save player settings and stats so if game is logged out then the game data will be saved.
  */

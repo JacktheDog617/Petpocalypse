@@ -11,7 +11,7 @@ package collegecatnip.petpocalypse;
  *		The base of the pet class.
  */
 
-public interface PetInterface
+public interface Pet
 {
     // Getters and Setters
     public String getNickName();

@@ -11,7 +11,7 @@ package collegecatnip.petpocalypse;
  *		The base of the pet class.
  */
 
-public class Cat
+public class Cat implements Pet
 {
     // Attributes
     private String nickName;

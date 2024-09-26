@@ -17,16 +17,34 @@ public class PlayerProfileData {
     // player variables
     private String playerName;
     private int user_id;
+    private int love;
+    private int treats;
     private long monies;
     private long player_logoff;
-    private int[] pettionary_unlock;
-    private short room_color;
+
 
     public PlayerProfileData() {
-        pettionary_unlock = new int[100]; // example for 100 potential pets
+        love = 0;
+        treats = 0;
     }
 
     // getters and setters
+
+    public int getLove() {
+        return love;
+    }
+
+    public void setLove(int love) {
+        this.love = love;
+    }
+
+    public int getTreats() {
+        return treats;
+    }
+
+    public void setTreats(int treats) {
+        this.treats = treats;
+    }
 
     public String getPlayerName() {
         return playerName;
@@ -58,22 +76,6 @@ public class PlayerProfileData {
 
     public void setPlayerLogoff(long player_logoff) {
         this.player_logoff = player_logoff;
-    }
-
-    public int[] getPettionaryUnlock() {
-        return pettionary_unlock;
-    }
-
-    public void setPettionaryUnlock(int[] pettionary_unlock) {
-        this.pettionary_unlock = pettionary_unlock;
-    }
-
-    public short getRoomColor() {
-        return room_color;
-    }
-
-    public void setRoomColor(short room_color) {
-        this.room_color = room_color;
     }
 
     // method to update monies

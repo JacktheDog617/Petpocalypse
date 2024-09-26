@@ -1,4 +1,4 @@
-package collegecatnip.petpocalypse;
+package com.mygame.petpocalypse;
 
 /*
  * Class to manage the players profile for the player class
@@ -8,13 +8,16 @@ package collegecatnip.petpocalypse;
  *
  * Last modified: 9/23/2024
  * Patch Notes:
- *      Comments are staggered throughout the code to make it more understandable. Sample numbers and images
+ *      ShopActivity is not yet openable, but the functionality is there. Comments
+ *      are staggered throughout the code to make it more understandable. Sample numbers and names
  *      are used in order to make the code more fleshed out. SharedPreferences is implemented to
  *      save player settings and stats so if game is logged out then the game data will be saved.
  */
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MainActivity extends AppCompatActivity {
+public class PlayerProfileActivity extends AppCompatActivity {
 
     // declare variables to hold player data
     private String playerNameText;
@@ -34,9 +37,18 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> petsOwned; // arrayList to hold pets owned by the player
 
-    @Override
+    @Override  //overrides the parent method (AppCompatActivity) to ensure you can set up your activity with custom logic (initializing the UI, buttons, etc.)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //initializing the shop button so its linked to the shop class
+        /*
+        Button shopButton = findViewById(R.id.shop_button);
+        shopButton.setOnClickListener(v -> {
+            Intent intent = new Intent(PlayerProfileActivity.this, ShopActivity.class);
+            startActivity(intent);
+        });
+         */
 
         // load saved player data
         loadPlayerData();
@@ -59,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         currentProfilePictureIndex = (currentProfilePictureIndex + 1) % profilePictures.length;
         savePlayerData();  // save the current profile picture index
     }
+
 
     // save player data using SharedPreferences
     private void savePlayerData() {

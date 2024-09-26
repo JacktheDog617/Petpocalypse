@@ -1,5 +1,15 @@
 package com.mygame.petpocalypse;
 
+/*
+ * Class to manage the players profile data for the player class
+ *
+ * @author Madison Ridore
+ * Date Created: 9/26/2024
+ *
+ * Last modified: 9/26/2024
+ * Patch Notes:
+ *      a json will be added to make import all the pets into an array of objects in the pettionary
+ */
 import java.util.ArrayList;
 
 public class PlayerProfileData {

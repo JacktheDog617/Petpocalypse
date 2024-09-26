@@ -21,9 +21,11 @@ public class PlayerProfileData {
     private int treats;
     private long monies;
     private long player_logoff;
+    // private ArrayList<Pet> pet_data;
 
 
     public PlayerProfileData() {
+      //  pet_data = new ArrayList<>();
         love = 0;
         treats = 0;
     }

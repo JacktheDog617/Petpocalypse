@@ -1,47 +1,38 @@
 package collegecatnip.petpocalypse;
-
-/*
- * Class to manage the players profile data for the player class
+/**
+ * a class that acquires players data that is kept in their profile
  *
  * @author Madison Ridore
- * Date Created: 9/26/2024
+ * Date Created: 9/23/2024
  *
- * @author Jaime Lee
- * Last modified: 9/27/2024
+ * @author Madison Ridore
+ * Last Modified: 9/27/2024
  * Patch Notes:
- *      added a pet_data editor
+ *		Will import the pet data from a json file in the future. 
  */
+
 import java.util.ArrayList;
 
-public class PlayerData {
+public class PlayerProfileData {
 
     // player variables
     private String playerName;
     private int user_id;
     private int love;
     private int treats;
+    private long monies;
     private long player_logoff;
-    private ArrayList<Pet> pet_data;
+    private ArrayList<Pet> petsOwned;
 
 
-    public PlayerData() {
-        pet_data = new ArrayList<>();
-        love = 0;
-        treats = 0;
+    public PlayerProfileData() {
+        petsOwned = new ArrayList<>();
+        this.love = 0;
+        this.treats = 0;
     }
 
     // getters and setters
 
-    public void addPet(Pet new_pet)
-    {
-        pet_data.add(new_pet);
-    }
-    
-    public ArrayList<Pet> getPetList()
-    {
-        return pet_data;
-    }
-    
     public int getLove() {
         return love;
     }
@@ -74,6 +65,14 @@ public class PlayerData {
         this.user_id = user_id;
     }
 
+    public long getMonies() {
+        return monies;
+    }
+
+    public void setMonies(long monies) {
+        this.monies = monies;
+    }
+
     public long getPlayerLogoff() {
         return player_logoff;
     }
@@ -82,8 +81,16 @@ public class PlayerData {
         this.player_logoff = player_logoff;
     }
 
+    public ArrayList<Pet> getPetsOwned() {
+        return petsOwned;
+    }
+
+    public void addPet(Pet pet) {
+        petsOwned.add(pet);
+    }
+
     // method to update monies
     public void updateMonies(long additionalMonies) {
-        this.love += additionalMonies;
+        this.monies += additionalMonies;
     }
 }

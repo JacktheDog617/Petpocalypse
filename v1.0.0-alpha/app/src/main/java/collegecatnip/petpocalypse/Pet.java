@@ -16,13 +16,13 @@ public interface Pet
     // Getters and Setters
     public String getNickName();
 
-    public Void setNickName(String name);
+    public void setNickName(String nickname);
 
     public String getBreed();
 
     public String getFlavorText();
 
-    public int getAction();
+    public int getLevel();
 
     public int getRarity();
 

@@ -1,4 +1,4 @@
-package com.mygame.petpocalypse;
+package collegecatnip.petpocalypse;
 
 /*
  * Class to manage the players profile data for the player class
@@ -6,32 +6,42 @@ package com.mygame.petpocalypse;
  * @author Madison Ridore
  * Date Created: 9/26/2024
  *
- * Last modified: 9/26/2024
+ * @author Jaime Lee
+ * Last modified: 9/27/2024
  * Patch Notes:
- *      a json will be added to make import all the pets into an array of objects in the pettionary
+ *      added a pet_data editor
  */
 import java.util.ArrayList;
 
-public class PlayerProfileData {
+public class PlayerData {
 
     // player variables
     private String playerName;
     private int user_id;
     private int love;
     private int treats;
-    private long monies;
     private long player_logoff;
-    // private ArrayList<Pet> pet_data;
+    private ArrayList<Pet> pet_data;
 
 
-    public PlayerProfileData() {
-      //  pet_data = new ArrayList<>();
+    public PlayerData() {
+        pet_data = new ArrayList<>();
         love = 0;
         treats = 0;
     }
 
     // getters and setters
 
+    public void addPet(Pet new_pet)
+    {
+        pet_data.add(new_pet);
+    }
+    
+    public ArrayList<Pet> getPetList()
+    {
+        return pet_data;
+    }
+    
     public int getLove() {
         return love;
     }
@@ -64,14 +74,6 @@ public class PlayerProfileData {
         this.user_id = user_id;
     }
 
-    public long getMonies() {
-        return monies;
-    }
-
-    public void setMonies(long monies) {
-        this.monies = monies;
-    }
-
     public long getPlayerLogoff() {
         return player_logoff;
     }
@@ -82,6 +84,6 @@ public class PlayerProfileData {
 
     // method to update monies
     public void updateMonies(long additionalMonies) {
-        this.monies += additionalMonies;
+        this.love += additionalMonies;
     }
 }

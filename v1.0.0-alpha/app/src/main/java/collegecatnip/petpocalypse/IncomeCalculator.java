@@ -4,18 +4,19 @@ package collegecatnip.petpocalypse;
  *
  * @author Jaime Lee
  * Date Created: 9/20/2024
- *
- * Last modified: 9/22/2024
+ * 
+ * @modifier Jaime Lee
+ * Last modified: 9/27/2024
  * Patch Notes:
- *      implemented switch case so that pet income is calculated based off rarity
- *      changed total_income to round up before converting to integer
- *      added additional comments for extra clarity
- *      changed toggleMultiplier so that the valid input check works
+ *      updated to use Pet ArrayList
+ *      updated to return income amount, not new balance
  */
+import java.util.ArrayList;
+
 public class IncomeCalculator
 {
     public double multiplier_array[][] = {
-            // item ID....multiplier.....toggle
+       // item ID....multiplier.....toggle
             {0,      0.05,          0},
             {1,      0.05,          0},
             {2,      0.05,          1},
@@ -26,20 +27,19 @@ public class IncomeCalculator
     /**
      * calculateIncome() will calculate the income amount that will be added to the current balance
      * and return the new balance
-     * @param current_balance - current integer balance passed from Player Class
      * @param pet_array - Pet array, containing income rates and which pets to calculate with
-     * @return new_balance calculated by this function
+     * @return final_income - the income after being calculated and rounded to the nearest int
      */
-    public int calculateIncome(int current_balance, int pet_array[])
+    public int calculateIncome(ArrayList<Pet> pet_array)
     {
-        int new_balance; // return new balance + total_income generated
+        int final_income; // return new balance + total_income generated
         double total_income = 0; // for calculating total_income
 
         /* for every pet income, add to total_income */
-        for(int i = 0; i < pet_array.length; i++)
+        for(int i = 0; i < pet_array.size(); i++)
         {
             // add income based on pet rarity
-            switch(pet_array[i])
+            switch(pet_array.get(i).getRarity())
             {
                 case 1:
                     total_income = total_income + 1;
@@ -52,7 +52,7 @@ public class IncomeCalculator
                     break;
                 default:
                     System.out.println("An error occured at line 34 of the calculateIncome() switch case.");
-                    System.out.println("Interation " + i + " input " + pet_array[i] + " into the switch case.");
+                    System.out.println("Interation " + i + " input " + pet_array.get(i) + " into the switch case.");
             }
         }
         /* for every multiplier activated, add multiplied income */
@@ -67,8 +67,8 @@ public class IncomeCalculator
             }
         }
         // new_balance = current_balance + total_income rounded up to nearest int
-        new_balance = current_balance + (int)Math.ceil(total_income);
-        return new_balance;
+        final_income = (int)Math.ceil(total_income);
+        return final_income;
     }
 
     /**
@@ -81,7 +81,7 @@ public class IncomeCalculator
      */
     public int toggleMultiplier(double item_id, double on_off)
     {
-        // return error if on_off is not a valid input (0/1)
+        // do not toggle if on_off is not 1 or 0
         if(on_off!= 1 && on_off != 0)
         {
             System.out.println("Item failed to toggle on/off. on_off = " + on_off);

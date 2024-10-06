@@ -1,6 +1,6 @@
 # Petpocalypse
 #### Description:
-Petpocalypse is an idle game made for android 14. It is programmed in a mix of Java and Kotlin. Java will be used for the back end and kotlin will be used for front end graphics.
+Petpocalypse is an idle game made with a minimum API 30. It is programmed in a mix of Java and Kotlin. Java will be used for the back end and kotlin will be used for front end graphics.
 
 #### Running: 
 This game will be downloaded through the Google Play app store and ran via it's exe file.

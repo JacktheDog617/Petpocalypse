@@ -22,7 +22,7 @@ public interface Pet
 
     public int getLevel();
 
-    public int getDuplicates;
+    public int getDuplicates();
 
     public void addDuplicate();
 

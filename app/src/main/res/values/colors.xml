@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_background">#9b8b78</color>
+    <color name="shop_background">#cfffd5</color>
+    <color name="pet_background">#b1d6fb</color>
+    <color name="room_background">#fead95</color>
+</resources>

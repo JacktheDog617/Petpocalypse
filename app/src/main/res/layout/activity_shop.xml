@@ -13,7 +13,11 @@
         android:layout_height="match_parent">
 
         <Button
+<<<<<<< Updated upstream
             android:id="@+id/back_button"
+=======
+            android:id="@+id/backButton"
+>>>>>>> Stashed changes
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Go Back"
@@ -27,9 +31,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.578"
             app:srcCompat="@drawable/ic_launcher_background" />
 
+<<<<<<< Updated upstream
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
@@ -56,6 +60,8 @@
                 android:text="Treats" />
         </com.google.android.material.tabs.TabLayout>
 
+=======
+>>>>>>> Stashed changes
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="collegecatnip.petpocalypse.ui.petbox.PetBoxFragment"
@@ -64,6 +70,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

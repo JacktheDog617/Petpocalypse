@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +26,24 @@ class MainActivity : AppCompatActivity() {
     private fun configureShopButton(){
         val shopButton = findViewById<ImageButton>(R.id.shop_button);
         shopButton.setOnClickListener {
+<<<<<<< Updated upstream
             startActivity(Intent(this, ShopActivity::class.java).also{startActivity(it)})
+=======
+            val intent = Intent(this, ShopActivity::class.java)
+            startActivity(intent)
+        }
+
+        val roomButton: ImageButton = findViewById(R.id.room_button)
+        roomButton.setOnClickListener {
+            val intent = Intent(this, ShopActivity::class.java)
+            startActivity(intent)
+        }
+
+        val petsButton: ImageButton = findViewById(R.id.pets_button)
+        petsButton.setOnClickListener {
+            val intent = Intent(this, ShopActivity::class.java)
+            startActivity(intent)
+>>>>>>> Stashed changes
         }
     }
 

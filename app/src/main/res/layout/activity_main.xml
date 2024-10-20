@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/pet_button" />
+            app:srcCompat="@drawable/pets_button" />
 
         <ImageButton
             android:id="@+id/room_button"
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/room_button" />
+            app:srcCompat="@drawable/room_editor_button" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

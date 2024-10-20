@@ -7,6 +7,8 @@ import android.widget.ImageButton
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import collegecatnip.petpocalypse.ui.petbox.PetBoxFragment
+import android.content.Intent
+import android.widget.Button
 
 class ShopActivity : ComponentActivity() {
 
@@ -24,6 +26,13 @@ class ShopActivity : ComponentActivity() {
     private fun configureBackButton(){
         val backButton = findViewById<Button>(R.id.back_button);
         backButton.setOnClickListener {
+            finish()
+        }
+
+        val backButton: Button = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }

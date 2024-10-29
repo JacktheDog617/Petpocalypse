@@ -6,8 +6,8 @@ color room_background
 color shop_background
 drawable empty_room
 drawable ic_launcher_background
-drawable pet_button
-drawable room_button
+drawable pets_button
+drawable room_editor_button
 drawable shop_button
 id backButton
 id container
@@ -31,7 +31,10 @@ raw cat_meow
 raw empty_room
 raw microtransactions_shop_button
 raw pet_carrier_shop_button
+raw pets_button
+raw room_editor_button
 raw room_item_shop_button
+raw shop_button
 string app_name
 string love_count
 string noise_button

@@ -3095,8 +3095,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-drawable pet_button
-drawable room_button
+drawable pets_button
+drawable room_editor_button
 drawable shop_button
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3816,7 +3816,10 @@ raw cat_meow
 raw empty_room
 raw microtransactions_shop_button
 raw pet_carrier_shop_button
+raw pets_button
+raw room_editor_button
 raw room_item_shop_button
+raw shop_button
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

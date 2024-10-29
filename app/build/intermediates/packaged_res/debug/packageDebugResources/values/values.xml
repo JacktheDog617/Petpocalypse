@@ -5,12 +5,11 @@
     <color name="room_background">#fead95</color>
     <color name="shop_background">#cfffd5</color>
     <string name="app_name">Petpocalypse</string>
-    <string name="love_count">\t0\t</string>
+    <string name="love_count">Love Count: 0</string>
     <string name="noise_button">Play Noise</string>
     <string name="pets_button">Pets</string>
     <string name="room_button">Room</string>
     <string name="shop_button">Shop</string>
-    <string name="treat_count">\t0\t</string>
     <string name="welcome_text">Welcome to Petpocalypse</string>
     <style name="Base.Theme.Petpocalypse" parent="Theme.Material3.DayNight.NoActionBar">
         

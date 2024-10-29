@@ -9,69 +9,16 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/currency_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/love_icon"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/love"/>
-
-        <TextView
-            android:id="@+id/love_counter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/main_background"
-            android:textSize="20pt"
-            android:text="@string/love_count"
-            android:layout_weight="1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-        </TextView>
-
-        <ImageView
-            android:id="@+id/bone_icon"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/bone"/>
-
-        <TextView
-            android:id="@+id/treat_counter"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/main_background"
-            android:textSize="20pt"
-            android:text="@string/treat_count"
-            android:layout_weight="1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/room_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currency_box">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/room_image"
+            android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/empty_room" />
@@ -79,7 +26,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/bottom_bar"
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="169dp"
         android:orientation="horizontal"

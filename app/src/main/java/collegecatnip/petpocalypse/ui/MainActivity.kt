@@ -1,14 +1,12 @@
-package collegecatnip.petpocalypse
+package collegecatnip.petpocalypse.ui
 
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import collegecatnip.petpocalypse.R
 
 class MainActivity : AppCompatActivity() {
 

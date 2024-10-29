@@ -1,10 +1,11 @@
-package collegecatnip.petpocalypse
+package collegecatnip.petpocalypse.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import collegecatnip.petpocalypse.ui.petbox.PetBoxFragment
 import android.content.Intent
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import collegecatnip.petpocalypse.R
 
 class ShopActivity : AppCompatActivity() {
 

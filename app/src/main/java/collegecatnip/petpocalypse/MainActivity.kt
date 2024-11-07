@@ -9,10 +9,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mediaPlayer: MediaPlayer
+    private var loveCounter: TextView = findViewById(R.id.love_counter)
+    private var treatsCounter: TextView = findViewById(R.id.treats_counter)
+
+    private var loveNum: Int = 0;
+    private var treatsNum: Int = 0;
+
+    val runnable = Runnable {
+        // Code to be executed
+        loveNum+= 1;
+        treatsNum+= 1;
+        loveCounter.setText(loveNum);
+        treatsCounter.setText(treatsNum);
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

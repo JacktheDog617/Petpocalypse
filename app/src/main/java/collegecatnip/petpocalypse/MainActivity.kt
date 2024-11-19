@@ -10,28 +10,31 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
 import android.widget.TextView
+import androidx.activity.result.launch
+import androidx.core.view.updatePadding
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlin.math.floor
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mediaPlayer: MediaPlayer
-    private var loveCounter: TextView = findViewById(R.id.love_counter)
-    private var treatsCounter: TextView = findViewById(R.id.treats_counter)
-
-    private var loveNum: Int = 0;
-    private var treatsNum: Int = 0;
-
-    val runnable = Runnable {
-        // Code to be executed
-        loveNum+= 1;
-        treatsNum+= 1;
-        loveCounter.setText(loveNum);
-        treatsCounter.setText(treatsNum);
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        // Handle insets
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updatePadding(bottom = insets.bottom) // Apply bottom padding
+            WindowInsetsCompat.CONSUMED
+        }
 
         val shopButton: ImageButton = findViewById(R.id.shop_button)
         shopButton.setOnClickListener {
@@ -49,6 +52,35 @@ class MainActivity : AppCompatActivity() {
         petsButton.setOnClickListener {
             val intent = Intent(this, ShopActivity::class.java)
             startActivity(intent)
+        }
+
+        var loveCounter: TextView = findViewById(R.id.love_counter)
+        var treatsCounter: TextView = findViewById(R.id.treats_counter)
+
+        var loveNum: Int = 0;
+        var treatsNum: Int = 0;
+
+        loveCounter.text = loveNum.toString();
+        treatsCounter.text = treatsNum.toString();
+
+        lifecycleScope.launch {
+            while (isActive) {
+                delay(1000)
+                loveNum += 1000; // Increment currency
+                withContext(Dispatchers.Main) {
+                    if (loveNum / 1000 < 1) {
+                        loveCounter.text = loveNum.toString() // Update UI
+                    }
+                    else if (loveNum / 1000000 < 1)
+                    {
+                        loveCounter.text = ((floor((loveNum/1000).toDouble()))).toInt().toString() + "K";
+                    }
+                    else
+                    {
+                        loveCounter.text = ((floor((loveNum/1000000).toDouble()))).toInt().toString() + "M";
+                    }
+                }
+            }
         }
     }
 

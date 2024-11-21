@@ -14,8 +14,10 @@ package collegecatnip.petpocalypse.backend;
 public interface Pet
 {
     // Getters and Setters
-    public int getID();
-
+    public int getPettionaryID();
+    
+    public int getPetID();
+    
     public String getNickName();
 
     public void setNickName(String nickname);

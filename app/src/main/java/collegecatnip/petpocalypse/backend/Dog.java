@@ -1,17 +1,12 @@
 package collegecatnip.petpocalypse.backend;
 /**
- * Class to hold the cats data
- *
- * @author Kendall Devich
- * Date Created: 9/23/2024
+ * Class to hold the dogs data
  *
  * @author Jaime Lee
- * Last Modified: 10/13/2024
- * Patch Notes:
- *	added constructor for pets with no nickname
+ * Date Created: 11/1/2024
  */
 
-public class Cat implements Pet, Comparable<Cat>
+public class Dog implements Pet, Comparable<Dog>
 {
     // Attributes
     private int PettionaryID;
@@ -22,19 +17,16 @@ public class Cat implements Pet, Comparable<Cat>
     private int duplicates;
     private int rarity;
     private boolean owned;
-    private String size;
-    private String flavor_text;
-    private String secret_text;
 
     // Comparable
     @Override
-    public int compareTo(Cat other)
+    public int compareTo(Dog other)
     {
         return this.PetID - other.PetID;
     }
     
     // Constructor for existing cat
-    public Cat(String nickname, String breed, int level, int duplicates, int rarity, int PetID, int PettionaryID, boolean owned_status)
+    public Dog(String nickname, String breed, int level, int duplicates, int rarity, int PetID, int PettionaryID, boolean owned_status)
     {
         this.PetID = PetID;
         this.PetID = PettionaryID;
@@ -54,7 +46,7 @@ public class Cat implements Pet, Comparable<Cat>
     }
     
     // Constructor new cat
-    public Cat(String breed, int rarity, int PetID, int PettionaryID)
+    public Dog(String breed, int rarity, int PetID, int PettionaryID)
     {
         this.PetID = PetID;
         this.PettionaryID = PettionaryID;

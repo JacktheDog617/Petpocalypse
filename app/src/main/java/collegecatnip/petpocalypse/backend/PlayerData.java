@@ -4,7 +4,7 @@ package collegecatnip.petpocalypse.backend;
  *
  * @author Madison Ridore
  * Date Created: 9/23/2024
- *
+ * 
  * Date Last Modified: 10/24/2024
  *      removed unnecessary code
  *      modified givePet to work via ID not Pet object
@@ -36,7 +36,6 @@ public class PlayerData {
     }
 
     // getters and setters
-
     public long getLove() {
         return love;
     }
@@ -78,6 +77,12 @@ public class PlayerData {
     }
 
     public static ArrayList<Pet> getPetsOwned() {
+        System.out.print("[");
+        for(Pet thing: petsOwned)
+        {
+            System.out.print(thing + ", ");
+        }
+        System.out.print("]\n");
         return petsOwned;
     }
 
@@ -85,23 +90,26 @@ public class PlayerData {
         petsOwned.add(pet);
     }
 
-    public void givePet(int id)
+    public int givePet(Pet pet)
     {
         for(Pet current: petsOwned)
         {
-            if (current.getID() == id)
+            if (current.equals(pet))
             {
                 if(current.isOwned())
                 {
                     current.addDuplicate();
+                    return 0;
                 }
                 else
                 {
                     current.changedOwned(true);
+                    return 0;
                 }
             }
         }
         System.out.println("Could not give pet, pet does not exist.");
+        return 1;
     }
     // method to update monies
     public void updateMonies(long additionalMonies) {

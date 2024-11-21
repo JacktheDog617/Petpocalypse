@@ -12,9 +12,9 @@ package collegecatnip.petpocalypse.backend;
  */
 
 public class Shop {
-    LootBox petCarrier = new LootBox(PlayerData.getPetsOwned());
     IncomeCalculator multiplier = new IncomeCalculator();
     int tempID = 0;
+    private LootBox petCarrier;
 
     private PlayerData playerData;
 
@@ -22,32 +22,34 @@ public class Shop {
     private static final int BASIC_PET_CARRIER_COST = 100; // cost of a basic pet carrier
     private static final int SILVER_PET_CARRIER_COST = 200; // cost of a basic pet carrier
     private static final int GOLD_PET_CARRIER_COST = 300; // cost of a basic pet carrier
-
+    
     private static final int ROOM_ITEM_COST = 100;
 
-    public Shop(PlayerData playerData) {
+    public Shop(PlayerData playerData)
+    {
         this.playerData = playerData; //loading the players data
+        petCarrier = new LootBox();
     }
 
-    // method to buy a basic pet
-    public void buyBasicPet() {
-
-        if (playerData.getLove() >= BASIC_PET_COST) {
-            playerData.setLove(playerData.getLove() - BASIC_PET_COST);
-
-            Pet basicPet = new Cat("Fuz", "Cat", 1,0,1, 11010, false);
-            playerData.addPet(basicPet);
-
-            displayPetDetails(basicPet);
-            System.out.println("You bought a Basic Pet!");
-        } else {
-            System.out.println("Not enough Love to buy this pet!");
-
-            long remaining = BASIC_PET_COST - playerData.getLove();
-
-            System.out.println(remaining + " more love is needed to buy this pet");
-        }
-    }
+//    // method to buy a basic pet
+//    public void buyBasicPet() {
+//
+//        if (playerData.getLove() >= BASIC_PET_COST) {
+//            playerData.setLove(playerData.getLove() - BASIC_PET_COST);
+//
+//            Pet basicPet = new Cat("Fuz", "Cat", 1,0,1, 11010, false);
+//            playerData.addPet(basicPet);
+//
+//            displayPetDetails(basicPet);
+//            System.out.println("You bought a Basic Pet!");
+//        } else {
+//            System.out.println("Not enough Love to buy this pet!");
+//
+//            long remaining = BASIC_PET_COST - playerData.getLove();
+//
+//            System.out.println(remaining + " more love is needed to buy this pet");
+//        }
+//    }
 
     // method to buy a basic pet carrier
     public void buyBasicPetCarrier() {
@@ -111,7 +113,7 @@ public class Shop {
             System.out.println(remaining + " more love is needed to buy this pet carrier");
         }
     }
-
+    
     public void buyRoomItem(int itemID)
     {
         switch(itemID)
@@ -122,7 +124,7 @@ public class Shop {
 
                     multiplier.toggleMultiplier(tempID, 1);
                     tempID++;
-
+                    
                     System.out.println("You bought a room item!");
                 } else {
                     System.out.println("Not enough Love to buy a room item!");

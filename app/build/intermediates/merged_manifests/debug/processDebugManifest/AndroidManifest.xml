@@ -28,10 +28,15 @@
         android:testOnly="true"
         android:theme="@style/Theme.Petpocalypse" >
         <activity
-            android:name="collegecatnip.petpocalypse.ShopActivity"
+            android:name="collegecatnip.petpocalypse.ui.MyPets"
+            android:exported="false"
+            android:label="@string/title_activity_my_pets"
+            android:theme="@style/Theme.Petpocalypse.NoActionBar" />
+        <activity
+            android:name="collegecatnip.petpocalypse.ui.ShopActivity"
             android:exported="true" />
         <activity
-            android:name="collegecatnip.petpocalypse.MainActivity"
+            android:name="collegecatnip.petpocalypse.ui.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

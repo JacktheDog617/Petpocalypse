@@ -4,34 +4,56 @@
  * @author Madison Ridore
  * Date Created: 9/23/2024
  * 
- * Date Last Modified: 10/24/2024
- *      removed unnecessary code
- *      modified givePet to work via ID not Pet object
+ * Date Last Modified: 11/27/2024
+ *      updated to work with TypeAdapter
  */
 
 import java.util.ArrayList;
+import java.time.LocalDateTime;
+
 
 public class PlayerData {
 
     // player variables
-    private static String playerName;
+    private static String name;
     private static int user_id;
     private static long love;
     private static int treats;
-    private static long player_logoff;
+    private static LocalDateTime player_logoff;
     private static ArrayList<Pet> petsOwned;
 
-
-    public PlayerData() {
-        petsOwned = new ArrayList<>();
-        this.love = 0;
-        this.treats = 0;
+    /**
+     * temp print
+     */
+    public void printInfo()
+    {
+        System.out.println("Player Name: " + name);
+        System.out.println("User ID: " + user_id);
+        System.out.println("Love: " + love);
+        System.out.println("Treats: " + treats);
+        System.out.println("Pets Owned:" + petsOwned.toString());
+    }
+    
+    // for json builder
+    public PlayerData(){}
+    
+    public PlayerData(ArrayList<Pet> loadedPets) {
+        name = "Player";
+        user_id = 0;
+        love = 0;
+        treats = 0;
+        player_logoff = LocalDateTime.now();
+        petsOwned = loadedPets;
     }
 
-    public PlayerData(int love, int treats)
+    public PlayerData(String name, int user_id, long love, int treats, LocalDateTime player_logoff, ArrayList<Pet> petsOwned)
     {
+        this.name = name;
+        this.user_id = user_id;
         this.love = love;
         this.treats = treats;
+        this.player_logoff = player_logoff;
+        this.petsOwned = petsOwned;
     }
 
     // getters and setters
@@ -51,12 +73,12 @@ public class PlayerData {
         this.treats = treats;
     }
 
-    public String getPlayerName() {
-        return playerName;
+    public String getName() {
+        return name;
     }
 
-    public void setPlayerNickname(String playerName) {
-        this.playerName = playerName;
+    public void setName(String new_name) {
+        name = new_name;
     }
 
     public int getUserId() {
@@ -67,21 +89,21 @@ public class PlayerData {
         this.user_id = user_id;
     }
 
-    public long getPlayerLogoff() {
+    public LocalDateTime getPlayerLogoff() {
         return player_logoff;
     }
 
-    public void setPlayerLogoff(long player_logoff) {
-        this.player_logoff = player_logoff;
+    public void setPlayerLogoff() {
+        this.player_logoff = LocalDateTime.now();
     }
 
     public static ArrayList<Pet> getPetsOwned() {
-        System.out.print("[");
-        for(Pet thing: petsOwned)
-        {
-            System.out.print(thing + ", ");
-        }
-        System.out.print("]\n");
+//        System.out.print("[");
+//        for(Pet thing: petsOwned)
+//        {
+//            System.out.print(thing + ",");
+//        }
+//        System.out.println("]");
         return petsOwned;
     }
 
@@ -89,11 +111,11 @@ public class PlayerData {
         petsOwned.add(pet);
     }
 
-    public void givePet(Pet pet)
+    public void givePet(int pet_id)
     {
         for(Pet current: petsOwned)
         {
-            if (current.equals(pet))
+            if (current.getPetID() == pet_id)
             {
                 if(current.isOwned())
                 {
@@ -103,12 +125,17 @@ public class PlayerData {
                 {
                     current.changedOwned(true);
                 }
+                return;
             }
         }
         System.out.println("Could not give pet, pet does not exist.");
     }
     // method to update monies
-    public void updateMonies(long additionalMonies) {
-        this.love += additionalMonies;
+    public void updateMonies(long added_love, int added_treats) {
+        love += added_love;
+        treats += added_treats;
+    }
+    public void updateMonies(long added_love) {
+        love += added_love;
     }
 }

@@ -1,3 +1,7 @@
+/**
+ *
+ * @author jacka
+ */
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -5,9 +9,7 @@ public class main
 {
     private static int CAT = 0;
     private static int DOG = 1;
-    
-    private static TemporarySave saveManager;
-    
+        
     private static String input;
     private static Scanner console = new Scanner(System.in);
     
@@ -38,8 +40,8 @@ public class main
     
     public static void main(String args[])
     {
-        saveManager = new TemporarySave(CAT);
         shop = new Shop(player);
+        player.printInfo();
         start = System.nanoTime();
         do
         {
@@ -52,7 +54,7 @@ public class main
                     elapsed = (end - start)/1000000000;
                     start = System.nanoTime();
                     System.out.println(elapsed);
-                    player.updateMonies(inCalc.calculateIncome() * elapsed);
+                    player.updateMonies(inCalc.calculateIncome() * elapsed, 0);
                     System.out.println("Love = " + player.getLove());
                     break;
                 case "S":
@@ -92,13 +94,15 @@ public class main
                     }while(!input.equalsIgnoreCase("B"));
                     break;
                 case "P":
-                    ArrayList<Pet> array_out = player.getPetsOwned();
-                    for (Pet pet: array_out)
+                    ArrayList<Pet> pets = player.getPetsOwned();
+                    for (Pet pet: pets)
                     {
-//                        if(pet.isOwned())
-//                        {
-                            System.out.println("Breed: " + pet.getBreed() + "   |   Owned: " + pet.isOwned());
-//                        }
+                        if(pet.isOwned())
+                        {
+                            System.out.println("Breed: " + pet.getBreed() 
+                            + " | Name: " + pet.getName() 
+                            + " | Owned: " + pet.isOwned());
+                        }
                     }
                     break;
                 case "R":

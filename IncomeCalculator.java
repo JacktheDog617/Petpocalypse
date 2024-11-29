@@ -32,7 +32,7 @@ public class IncomeCalculator
      * and return the new balance
      * @return final_income - the income after being calculated and rounded to the nearest int
      */
-    public int calculateIncome()
+    public long calculateIncome()
     {
         int final_income; // total_income generated in integer form
         double total_income = 0; // for calculating total_income

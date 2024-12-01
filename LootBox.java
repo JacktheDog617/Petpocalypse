@@ -13,8 +13,9 @@
  * @author Jaime Lee
  * Date Created: 10/13/2024
  * 
- * Last Modified: 11/29/2024
- *      Edited to use PlayerData array to read in rarity indices
+ * Last Modified: 11/30/2024
+ *      Fixed issue with out of bounds
+ *      Changed ID arrays to be arrayList fixing a different out of bounds issue
  */
 import java.util.Random;
 import java.util.ArrayList;

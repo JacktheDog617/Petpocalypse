@@ -5,26 +5,14 @@
  * Date Created: 9/20/2024
  *
  * @author Jaime Lee
- * Last modified: 9/27/2024
+ * Last modified: 11/29/2024
  * Patch Notes:
- *      updated to use Pet ArrayList
- *      updated to return income amount, not new balance
+ *      moved multiplier_array to PlayerData
  */
 import java.util.ArrayList;
 
 public class IncomeCalculator
 {
-    public double multiplier_array[][] = {
-            // item ID....multiplier.....toggle
-            {0,      0.05,          0},
-            {1,      0.05,          0},
-            {2,      0.05,          0},
-            {3,      0.05,          0},
-            {4,      0.05,          0},
-            {5,      0.05,          0},
-            {6,      0.05,          0}
-    };
-    
     PlayerData player = new PlayerData();
 
     /**
@@ -37,6 +25,7 @@ public class IncomeCalculator
         int final_income; // total_income generated in integer form
         double total_income = 0; // for calculating total_income
         ArrayList<Pet> pet_array = player.getPetsOwned();
+        double[][] multiplier_array = player.getMultipliers();
 
         /* for every pet income, add to total_income */
         for(int i = 0; i < pet_array.size(); i++)
@@ -80,35 +69,5 @@ public class IncomeCalculator
         // new_balance = current_balance + total_income rounded up to nearest int
         final_income = (int)Math.ceil(total_income);
         return final_income;
-    }
-
-    /**
-     * toggleMultiplier will take in a given item_id and change it's toggle to 1 or 0 according to
-     * activate parameter
-     * @param item_id - this parameter requires an int or double of the ID of the item to be toggled
-     * @param on_off - 1 to toggle on or 0 to toggle off, toggle changes whether or not the item
-     *                 is used in income calculations
-     * @return 0 if successful, 1 if failed
-     */
-    public int toggleMultiplier(double item_id, double on_off)
-    {
-        // do not toggle if on_off is not 1 or 0
-        if(on_off!= 1 && on_off != 0)
-        {
-            System.out.println("Item failed to toggle on/off. on_off = " + on_off);
-            return -1; // return failure flag
-        }
-        // boolean to exit for loop if intended action is completed
-        boolean toggle_unfinished = true;
-        // loop through array until array end OR multiplier is toggled
-        for(int i = 0; (i < multiplier_array.length && toggle_unfinished); i++)
-        {
-            if(multiplier_array[i][0] == item_id) // check against item ID
-            {
-                multiplier_array[i][2] = on_off; // switch to 1 or 0
-                toggle_unfinished = false; // exit loop
-            }
-        }
-        return 0;// return successful execution flag
     }
 }

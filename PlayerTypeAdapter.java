@@ -12,6 +12,7 @@ import com.google.gson.stream.JsonWriter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.time.LocalDateTime;
 
 public class PlayerTypeAdapter extends TypeAdapter<PlayerData>
@@ -35,7 +36,7 @@ public class PlayerTypeAdapter extends TypeAdapter<PlayerData>
         out.name("treats").value(player.getTreats());
         out.name("player_logoff").value(player.getPlayerLogoff().toString());
         out.name("petsOwned"); petListAdapter.write(out, player.getPetsOwned());
-
+        out.name("multipliers").value(Arrays.deepToString(player.getMultipliers()));
         out.endObject();
     }
     
@@ -51,6 +52,7 @@ public class PlayerTypeAdapter extends TypeAdapter<PlayerData>
         int treats = -1;
         LocalDateTime player_logoff = null;
         ArrayList<Pet> petsOwned = null;
+        double[][] multipliers = null;
 
         while(in.hasNext())
         {
@@ -75,13 +77,47 @@ public class PlayerTypeAdapter extends TypeAdapter<PlayerData>
                 case "petsOwned":
                     petsOwned = petListAdapter.read(in);
                     break;
+                case "multipliers":
+                    multipliers = parseMultipliers(in.nextString());
+                    break;
                 default:
                     in.skipValue();
                     break;
             }
         }
         in.endObject();
-        player = new PlayerData(name, user_id, love, treats, player_logoff, petsOwned);
+        player = new PlayerData(name, user_id, love, treats, player_logoff, petsOwned, multipliers);
         return player;
+    }
+    
+    /**
+     * Takes in a string, using predetermined unchanging distances between values
+     * grab double [i][3] which is the only changing value in the array
+     * @param multipliers_string
+     * @return 
+     */
+    private double[][] parseMultipliers(String multipliers_string)
+    {
+        // create multidimensional array
+        double[][] multipliers = new double[6][3];
+        // needed to grab the correct char position
+        int gap = 0;
+        for(int i = 0; i < 6; i++)
+        {
+            // if it is the first element, skip to double[0][3]
+            if(i == 0)
+            {
+                gap += 12;
+            }
+            else // skip to double[i][3]
+            {
+                gap += 17;
+            }
+            multipliers[i][0] = i;      // set ID
+            multipliers[i][1] = 0.5;    // set multiplier amount
+            // set owned based on the int part of the double in multipliers_string[i][3]
+            multipliers[i][2] = Character.getNumericValue(multipliers_string.charAt(gap));
+        }
+        return multipliers;
     }
 }

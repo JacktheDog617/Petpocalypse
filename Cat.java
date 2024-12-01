@@ -119,6 +119,7 @@ public class Cat implements Pet, Comparable<Cat>
 
     public void changedOwned(boolean isOwned) {
         this.owned = isOwned;
+        System.out.println(breed + ": " + owned);
     }
     
     public String getFlavorText()

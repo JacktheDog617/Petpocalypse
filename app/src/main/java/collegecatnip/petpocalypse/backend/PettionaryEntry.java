@@ -1,4 +1,3 @@
-package collegecatnip.petpocalypse.backend;
 /**
  * Class to outline Entry objects that will be managed in PettionaryManager
  *

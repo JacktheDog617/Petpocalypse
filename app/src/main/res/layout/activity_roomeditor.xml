@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RoomEditorActivity"
+    android:orientation="vertical"
+    android:background="@color/main_background">
+
+    <!-- Room Editor Top Bar -->
+    <LinearLayout
+        android:id="@+id/RoomEditorTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/overlock_bold"
+            android:paddingStart="16dp"
+            android:text="Room Editor"
+            android:textColor="@color/white"
+            android:textSize="40sp">
+        </TextView>
+
+        <!-- Spacer -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </Space>
+
+        <!-- Exit Button -->
+        <ImageButton
+            android:id="@+id/editor_exit_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="editor exit"
+            android:scaleType="fitCenter"
+            android:src="@drawable/exit_button"
+            tools:ignore="HardcodedText">
+        </ImageButton>
+    </LinearLayout>
+    <!-- End of Room Editor Top Bar -->
+
+    <LinearLayout
+        android:id="@+id/room_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/RoomEditorTopBar"
+        app:layout_constraintBottom_toTopOf="@id/EditorOptionsBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/base_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/empty_room"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/EditorOptionsBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Editor options should go here -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/overlock_black"
+            android:text="Editor Options"
+            android:textColor="@color/white"
+            android:textSize="30sp">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/overlock_black"
+            android:text="Coming Soon"
+            android:textColor="@color/white"
+            android:textSize="60sp">
+        </TextView>
+        <!-- Editor options should go here -->
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,50 +6,93 @@ package collegecatnip.petpocalypse.backend;
  * Date Created: 9/23/2024
  *
  * @author Jaime Lee
- * Last Modified: 10/23/2024
+ * Last Modified: 11/29/2024
  * Patch Notes:
- *		added purchasing of pet carrier (lootbox)
+ *      Fixed things
  */
+import java.util.ArrayList;
 
 public class Shop {
-    IncomeCalculator multiplier = new IncomeCalculator();
     int tempID = 0;
     private LootBox petCarrier;
 
     private PlayerData playerData;
 
-    private static final int BASIC_PET_COST = 100; // cost of a basic pet
     private static final int BASIC_PET_CARRIER_COST = 100; // cost of a basic pet carrier
-    private static final int SILVER_PET_CARRIER_COST = 200; // cost of a basic pet carrier
-    private static final int GOLD_PET_CARRIER_COST = 300; // cost of a basic pet carrier
+    private static final int SILVER_PET_CARRIER_COST = 200; // cost of a silver pet carrier
+    private static final int GOLD_PET_CARRIER_COST = 300; // cost of a gold pet carrier
     
     private static final int ROOM_ITEM_COST = 100;
-
+    private static int itemsOwned;
+    
     public Shop(PlayerData playerData)
     {
         this.playerData = playerData; //loading the players data
         petCarrier = new LootBox();
+        double[][] room_item_data = playerData.getMultipliers();
+        for(int i = 0; i < room_item_data.length; i++)
+        {
+            if(room_item_data[i][2] == 1)
+            {
+                itemsOwned++;
+            }
+        }
+        //availablePets = PlayerSave.loadCatsFromJson("cats.json");
+
+//        if (availablePets != null && !availablePets.isEmpty()) {
+//            giveBasicPetAtStart();
+//        } else {
+//            System.out.println("No cats available in the JSON file to give as a basic pet.");
+//        }
     }
 
-//    // method to buy a basic pet
-//    public void buyBasicPet() {
-//
-//        if (playerData.getLove() >= BASIC_PET_COST) {
-//            playerData.setLove(playerData.getLove() - BASIC_PET_COST);
-//
-//            Pet basicPet = new Cat("Fuz", "Cat", 1,0,1, 11010, false);
-//            playerData.addPet(basicPet);
-//
-//            displayPetDetails(basicPet);
-//            System.out.println("You bought a Basic Pet!");
-//        } else {
-//            System.out.println("Not enough Love to buy this pet!");
-//
-//            long remaining = BASIC_PET_COST - playerData.getLove();
-//
-//            System.out.println(remaining + " more love is needed to buy this pet");
-//        }
+//    private void giveBasicPetAtStart() {
+//        Pet basicPet = availablePets.get(0); // assuming the first pet is the basic pet
+//        playerData.addPet(basicPet);
+//        System.out.println("You received the basic pet: " + basicPet.getName());
 //    }
+
+//public void buyCat(int catIndex) {
+//    ArrayList<Pet> availableCats = PlayerSave.loadCatsFromJson("cats.json");
+//
+//    if (availableCats != null && catIndex >= 0 && catIndex < availableCats.size()) {
+//        Pet catToBuy = availableCats.get(catIndex);
+//
+//        int catCost = getCatCostByRarity(catToBuy.getRarity());
+//
+//        if (playerData.getLove() >= catCost) {
+//            // deduct love and add the cat to petsOwned
+//            playerData.setLove(playerData.getLove() - catCost);
+//            playerData.addPet(catToBuy);
+//            System.out.println("You bought a Cat!");
+//            displayCatDetails(catToBuy);
+//        } else {
+//            System.out.println("Not enough Love to buy this cat!");
+//
+//            long remaining = catCost - playerData.getLove();
+//            System.out.println(remaining + " more Love is needed to buy this cat.");
+//        }
+//    } else {
+//        System.out.println("Invalid cat selection or no cats available!");
+//    }
+//}
+//    private int getCatCostByRarity(int rarity) {
+//        switch (rarity) {
+//            case 1:
+//                return 100;
+//            case 2:
+//                return 200;
+//            case 3:
+//                return 300;
+//            case 4:
+//                return 500;
+//            case 5:
+//                return 1000;
+//            default:
+//                return 100;
+//    }
+//
+//}
 
     // method to buy a basic pet carrier
     public void buyBasicPetCarrier() {
@@ -57,11 +100,12 @@ public class Shop {
         if (playerData.getLove() >= BASIC_PET_CARRIER_COST) {
             playerData.setLove(playerData.getLove() - BASIC_PET_CARRIER_COST);
 
-            Pet new_pet = petCarrier.openBox(1);
+            int new_pet = petCarrier.openBox(1);
+            System.out.println("Pettionary ID: " + new_pet);
 
-            playerData.addPet(new_pet);
+            playerData.givePet(new_pet);
 
-            displayPetDetails(new_pet);
+            displayCatDetails(playerData.getPet(new_pet));
             System.out.println("You opened a Basic Pet Carrier!");
         } else {
             System.out.println("Not enough Love to buy this pet carrier!");
@@ -78,11 +122,11 @@ public class Shop {
         if (playerData.getLove() >= SILVER_PET_CARRIER_COST) {
             playerData.setLove(playerData.getLove() - SILVER_PET_CARRIER_COST);
 
-            Pet new_pet = petCarrier.openBox(2);
+            int new_pet = petCarrier.openBox(2);
 
-            playerData.addPet(new_pet);
+            playerData.givePet(new_pet);
 
-            displayPetDetails(new_pet);
+            displayCatDetails(playerData.getPet(new_pet));
             System.out.println("You opened a Silver Pet Carrier!");
         } else {
             System.out.println("Not enough Love to buy this pet carrier!");
@@ -99,11 +143,11 @@ public class Shop {
         if (playerData.getLove() >= GOLD_PET_CARRIER_COST) {
             playerData.setLove(playerData.getLove() - GOLD_PET_CARRIER_COST);
 
-            Pet new_pet = petCarrier.openBox(3);
+            int new_pet = petCarrier.openBox(3);
 
-            playerData.addPet(new_pet);
+            playerData.givePet(new_pet);
 
-            displayPetDetails(new_pet);
+            displayCatDetails(playerData.getPet(new_pet));
             System.out.println("You opened a Golden Pet Carrier!");
         } else {
             System.out.println("Not enough Love to buy this pet carrier!");
@@ -116,13 +160,14 @@ public class Shop {
     
     public void buyRoomItem(int itemID)
     {
+        int this_item_cost = ROOM_ITEM_COST + (ROOM_ITEM_COST * (itemsOwned * itemsOwned));
         switch(itemID)
         {
             case 1:
-                if (playerData.getLove() >= ROOM_ITEM_COST) {
-                    playerData.setLove(playerData.getLove() - ROOM_ITEM_COST);
+                if (playerData.getLove() >= this_item_cost) {
+                    playerData.setLove(playerData.getLove() - this_item_cost);
 
-                    multiplier.toggleMultiplier(tempID, 1);
+                    playerData.toggleMultiplier(tempID, 1);
                     tempID++;
                     
                     System.out.println("You bought a room item!");
@@ -136,8 +181,12 @@ public class Shop {
         }
     }
 
-    private void displayPetDetails(Pet pet) {
-        System.out.println("Pet Breed: " + pet.getBreed());
-        System.out.println("Rarity: " + pet.getRarity());
+    private void displayCatDetails(Pet cat) {
+        System.out.println("Cat Details:");
+        System.out.println("Name: " + cat.getName());
+        System.out.println("Breed: " + cat.getBreed());
+        System.out.println("Is Owned: " + cat.isOwned());
+        System.out.println("Duplicates: " + cat.getDuplicates());
+        System.out.println("Rarity: " + cat.getRarity());
     }
 }

@@ -6,33 +6,40 @@ package collegecatnip.petpocalypse.backend;
  * Date Created: 9/23/2024
  *
  * @author Jaime Lee
- * Last Modified: 10/13/2024
+ * Last Modified: 11/25/2024
  * Patch Notes:
- *		The base of the pet class.
+ *      merging pettionary entry and
+ *      pettionary manager into cat
  */
 
 public interface Pet
-{
+{    
     // Getters and Setters
-    public int getPettionaryID();
-    
     public int getPetID();
     
-    public String getNickName();
-
-    public void setNickName(String nickname);
-
+    public int getPettionaryID();
+    
     public String getBreed();
+    
+    public String getName();
+
+    public void setName(String name);
 
     public int getLevel();
+    
+    public int getSize();
+    
+    public int getRarity();
 
     public int getDuplicates();
 
     public void addDuplicate();
 
-    public int getRarity();
-
     public boolean isOwned();
 
     public void changedOwned(boolean isOwned);
+    
+    public String getFlavorText();
+    
+    public String getSecret();
 }

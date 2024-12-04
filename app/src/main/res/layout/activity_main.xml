@@ -17,8 +17,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_bar">
+
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/MainRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/empty_room" />
@@ -30,16 +31,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         android:paddingTop="20dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/love_icon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/love_icon" />
 
@@ -47,16 +48,16 @@
             android:id="@+id/love_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="30dp"
-            android:textAlignment="textStart"
-            android:scaleType="centerInside"/>
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="40dp"
+            android:scaleType="center"
+            android:fontFamily="@font/overlock_black"
+            android:textSize="30dp" />
 
         <ImageView
             android:id="@+id/treats_icon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/treats" />
 
@@ -64,10 +65,10 @@
             android:id="@+id/treats_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="30dp"
-            android:textAlignment="textStart"
-            android:scaleType="centerInside"/>
+            android:layout_marginStart="4dp"
+            android:scaleType="center"
+            android:fontFamily="@font/overlock_black"
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -81,28 +82,28 @@
 
         <ImageButton
             android:id="@+id/shop_button"
-            android:background="@color/shop_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/shop_background"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/shop_button" />
 
         <ImageButton
             android:id="@+id/pets_button"
-            android:background="@color/pet_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/pet_background"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/pets_button" />
 
         <ImageButton
             android:id="@+id/room_button"
-            android:background="@color/room_background"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/room_background"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/room_editor_button" />
     </LinearLayout>

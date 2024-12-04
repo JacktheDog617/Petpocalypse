@@ -1,4 +1,3 @@
-package collegecatnip.petpocalypse.backend;
 /**
  * Class to manage all pet-tionary entries, whether they should be active, and what is in them
  *

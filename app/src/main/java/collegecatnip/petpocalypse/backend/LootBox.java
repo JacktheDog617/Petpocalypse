@@ -14,14 +14,11 @@ package collegecatnip.petpocalypse.backend;
  * @author Jaime Lee
  * Date Created: 10/13/2024
  * 
- * Last Modified: 11/1/2024
- *      Edited to read in file
+ * Last Modified: 11/29/2024
+ *      Edited to use PlayerData array to read in rarity indices
  */
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class LootBox
 {
@@ -32,11 +29,11 @@ public class LootBox
     private final int[] silver_weight = {20, 50, 20, 8, 2}; // common: 20%, rare: 50%, legendary: 20%, mystical: 8%, dev: 2%
     private final int[] gold_weight = {10,40,25,15,10}; // common: 10%, rare: 40%, legendary: 25%, mystical: 15%, dev: 10%
     
-    private int[] commons;
-    private int[] rares;
-    private int[] legendarys;
-    private int[] mysticals;
-    private int[] devs;
+    private ArrayList<Integer> commons;
+    private ArrayList<Integer> rares;
+    private ArrayList<Integer> legendarys;
+    private ArrayList<Integer> mysticals;
+    private ArrayList<Integer> devs;
     
     // print array for testing
     private void print(Pet[] array)
@@ -54,10 +51,9 @@ public class LootBox
      */
     LootBox()
     {
-        int numOfPets = 23;
-        commons = new int[numOfPets]; rares = new int[numOfPets]; legendarys = new int[numOfPets]; mysticals = new int[numOfPets]; devs = new int[numOfPets];
+        commons = new ArrayList<>(); rares = new ArrayList<>(); legendarys = new ArrayList<>(); mysticals = new ArrayList<>(); devs = new ArrayList<>();
         
-        readIn("cats.txt");
+        loadRarityIndices(new PlayerData().getPetsOwned());
     }
     
     /**
@@ -65,28 +61,27 @@ public class LootBox
      * @param box_rarity
      * @return pet
      */
-    public Pet openBox(int box_rarity)
+    public int openBox(int box_rarity)
     {
-        ArrayList<Pet> pet_array = PlayerData.getPetsOwned();
-
         getWeights(box_rarity);
 
-        int rarity = rand.nextInt(101); // bound does not include 101
+        int rarity = rand.nextInt(100); // bound gives rand 0-99
 
         switch(weighted_rarities[rarity])
         {
             case "common":
-                return pet_array.get(rand.nextInt(commons.length));
+                return rand.nextInt(commons.size()) + 11;
             case "rare":
-                return pet_array.get(rand.nextInt(rares.length));
+                return rand.nextInt(rares.size()) + 1;
             case "legendary":
-                return pet_array.get(rand.nextInt(legendarys.length));
+                return rand.nextInt(legendarys.size())+1;
             case "mystical":
-                return pet_array.get(rand.nextInt(mysticals.length));
+                return rand.nextInt(mysticals.size()) + 1;
             case "dev":
-                return pet_array.get(rand.nextInt(devs.length));
+                return rand.nextInt(devs.size()) + 1;
             default:
-                return null;
+                System.out.println("Error: Invalid rarity...");
+                return -1;
         }
     }
 
@@ -127,50 +122,27 @@ public class LootBox
         }
     }
     
-    private void readIn(String file_name)
-    {
-        String file = "";
-        try
+    private void loadRarityIndices(ArrayList<Pet> pets)
+    {        
+        // load pet data
+        for(Pet pet: pets)
         {
-            File toRead = new File(file_name);
-            Scanner fileReader = new Scanner(toRead);
-            while(fileReader.hasNextLine())
-            {
-                file = file + fileReader.nextLine();
-            }
-            fileReader.close();
-        }
-        catch(FileNotFoundException e)
-        {
-            System.out.println("An error ocurred.");
-            e.printStackTrace();
-        }
-        
-        int commons_index = 0, rares_index = 0, legendarys_index = 0, mysticals_index = 0, devs_index = 0;
-
-        // load pet datax
-        
-        String[] pet;
-        String[] pet_data = file.split("=");
-        for(String data:pet_data)
-        {
-            pet = data.split(",");
-            switch(Integer.parseInt(pet[1]))
+            switch(pet.getRarity())
             {
                 case 1:
-                    commons[commons_index++] = Integer.parseInt(pet[2]);
+                    commons.add(pet.getPetID());
                     break;
                 case 2:
-                    rares[rares_index++] = Integer.parseInt(pet[2]);
+                    rares.add(pet.getPetID());
                     break;
                 case 3:
-                    legendarys[legendarys_index++] = Integer.parseInt(pet[2]);
+                    legendarys.add(pet.getPetID());
                     break;
                 case 4:
-                    mysticals[mysticals_index++] = Integer.parseInt(pet[2]);
+                    mysticals.add(pet.getPetID());
                     break;
                 case 5:
-                    devs[devs_index++] = Integer.parseInt(pet[2]);
+                    devs.add(pet.getPetID());
                     break;
                 default:
                     System.out.println("Error loading pet IDs to the lootboxes...");

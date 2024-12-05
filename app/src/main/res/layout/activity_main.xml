@@ -1,80 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     android:gravity="center"
-    android:background="@color/background"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/room_layout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
 
-        <TextView
-            android:id="@+id/welcome_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_text"
-            android:textSize="30sp"
-            android:textColor="@color/white"
-            android:textAlignment="center"/>
-
-        <TextView
-            android:id="@+id/love_count"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/love_count"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textAlignment="center"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="260dp"/>
-
-        <Button
-            android:id="@+id/noise_button"
+        <ImageView
+            android:id="@+id/MainRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="@string/noise_button" />
+            app:srcCompat="@drawable/empty_room" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="260dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="bottom">
-
-            <Button
-                android:id="@+id/shop_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/shop_button"
-                android:backgroundTint="@color/shop_button"/>
-
-            <Button
-                android:id="@+id/pets_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/pets_button"
-                android:backgroundTint="@color/pets_button"/>
-
-            <Button
-                android:id="@+id/room_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/room_button"
-                android:backgroundTint="@color/room_button"/>
-
-        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/love_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/love_icon" />
+
+        <TextView
+            android:id="@+id/love_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="40dp"
+            android:scaleType="center"
+            android:fontFamily="@font/overlock_black"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:id="@+id/treats_icon"
+            android:layout_width="55dp"
+            android:layout_height="40dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/treats" />
+
+        <TextView
+            android:id="@+id/treats_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:scaleType="center"
+            android:fontFamily="@font/overlock_black"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/shop_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/shop_background"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/shop_button" />
+
+        <ImageButton
+            android:id="@+id/pets_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/pet_background"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/pets_button" />
+
+        <ImageButton
+            android:id="@+id/room_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/room_background"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/room_editor_button" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MyPetsActivity"
+    android:orientation="vertical"
+    android:background="@color/ric_burgandy">
+
+    <!-- My Pets Top Bar -->
+    <LinearLayout
+        android:id="@+id/myPetsTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:text="My Pets"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:fontFamily="@font/overlock_bold">
+        </TextView>
+
+        <!-- Spacer -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </Space>
+
+        <!-- Exit Button -->
+        <ImageButton
+            android:id="@+id/pets_exit_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/exit_button"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:contentDescription="my pets exit"
+            android:layout_margin="10dp"
+            tools:ignore="HardcodedText">
+        </ImageButton>
+    </LinearLayout>
+    <!-- End of My Pets Top Bar -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/myPetsTopBar">
+        <!-- Scroll View -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- Scroll View LinearLayout -->
+            <LinearLayout
+                android:id="@+id/myPetsCardContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/ric_burgandy"
+                android:orientation="vertical">
+                <!-- Pet cards should load here -->
+            </LinearLayout>
+            <!-- End of Scroll View LinearLayout -->
+        </ScrollView>
+        <!-- End of Scroll View -->
+    </RelativeLayout>
+
+</RelativeLayout>

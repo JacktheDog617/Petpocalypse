@@ -29,7 +29,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/bread_cat">
+                android:src="@drawable/exit_button">
             </ImageView>
             <!-- Vertical Layout with breed, name, level, and progress bar for duplicates -->
             <LinearLayout
@@ -44,8 +44,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="12dp"
-                    android:text="Breab Cat"
-                    android:textSize="20sp"
+                    android:text="Error"
+                    android:textSize="24sp"
                     android:fontFamily="@font/overlock_bold">
                 </TextView>
 
@@ -55,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:textSize="14sp"
+                    android:text="Error"
+                    android:textSize="18sp"
                     android:fontFamily="@font/overlock_italic">
                 </TextView>
 
@@ -65,14 +66,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
+                    android:text="Error"
+                    android:textSize="14sp"
                     android:fontFamily="@font/overlock_regular">
 
                 </TextView>
 
                 <ProgressBar
                     android:id="@+id/PetProgress"
-                    android:layout_width="80dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
+                    android:scaleY="2"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"
@@ -80,15 +84,27 @@
                     android:progressTint="@color/ric_yellow">
                 </ProgressBar>
 
+                <TextView
+                    android:id="@+id/ProgressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="-4dp"
+                    android:textSize="14sp"
+                    android:text="-1/-1"
+                    android:fontFamily="@font/overlock_regular">
+                </TextView>
+
             </LinearLayout>
             <!-- End of Vertical Layout with breed, name, level, and progress bar -->
         </LinearLayout>
         <!-- End of Cat pic next to vertical layout with breed, name, level, and progress bar -->
 
+        <!-- Vertical Layout with rarity and earning rate -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/PetRarity"
@@ -96,7 +112,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="Error"
+                android:textSize="18sp"
                 android:fontFamily="@font/overlock_regular">
             </TextView>
 
@@ -107,11 +125,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="16dp"
+                android:text="Error"
+                android:textSize="18sp"
                 android:fontFamily="@font/overlock_regular">
             </TextView>
 
         </LinearLayout>
-
+        <!-- End of Vertical Layout with rarity and earning rate -->
     </LinearLayout>
     <!-- End of Vertically cut card in 2 -->
 </androidx.cardview.widget.CardView>

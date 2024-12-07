@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background"
     android:gravity="center"
     android:orientation="vertical">
 
-    <LinearLayout
+    <!-- Main Room -->
+    <FrameLayout
         android:id="@+id/room_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,14 +18,92 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_bar">
 
+        <!-- Empty Room -->
         <ImageView
             android:id="@+id/MainRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/empty_room" />
+            app:srcCompat="@drawable/empty_room"/>
 
-    </LinearLayout>
+        <!-- Items -->
+        <ImageView
+            android:id="@+id/item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/couch_item_2"
+            android:visibility="gone" />
 
+        <ImageView
+            android:id="@+id/item3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/plant_item_3"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/item4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/rug_item_4"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/item5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/shelf_item_5"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/item6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/stable_table_item_6"
+            android:visibility="gone" />
+        <!-- End Items -->
+
+        <!-- Cats Placed in Room -->
+        <ImageView
+            android:id="@+id/item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bed_item_1"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/thai_room"
+            android:visibility="visible" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/keyboard_room"
+            android:visibility="visible" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/norwegian_room"
+            android:visibility="visible" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/taco_room"
+            android:visibility="visible" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/sphynx_room"
+            android:visibility="visible" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/selkirk_room"/>
+        <!-- End Cats Placed in Room -->
+    </FrameLayout>
+    <!-- End Main Room -->
+
+    <!-- Top Bar -->
     <LinearLayout
         android:id="@+id/top_bar"
         android:layout_width="wrap_content"
@@ -37,6 +115,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Love Icon and Counter -->
         <ImageView
             android:id="@+id/love_icon"
             android:layout_width="40dp"
@@ -53,7 +132,9 @@
             android:scaleType="center"
             android:fontFamily="@font/overlock_black"
             android:textSize="30dp" />
+        <!-- End Love Icon and Counter -->
 
+        <!-- Treats Icon and Counter -->
         <ImageView
             android:id="@+id/treats_icon"
             android:layout_width="55dp"
@@ -69,8 +150,11 @@
             android:scaleType="center"
             android:fontFamily="@font/overlock_black"
             android:textSize="30dp" />
+        <!-- End Treats Icon and Counter -->
     </LinearLayout>
+    <!-- End Top Bar -->
 
+    <!-- Bottom Buttons -->
     <LinearLayout
         android:id="@+id/bottom_buttons"
         android:layout_width="match_parent"
@@ -80,6 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <!-- Shop Button -->
         <ImageButton
             android:id="@+id/shop_button"
             android:layout_width="wrap_content"
@@ -89,6 +174,7 @@
             android:scaleType="centerInside"
             app:srcCompat="@drawable/shop_button" />
 
+        <!-- Pets Button -->
         <ImageButton
             android:id="@+id/pets_button"
             android:layout_width="wrap_content"
@@ -98,6 +184,7 @@
             android:scaleType="centerInside"
             app:srcCompat="@drawable/pets_button" />
 
+        <!-- Room Editor Button -->
         <ImageButton
             android:id="@+id/room_button"
             android:layout_width="wrap_content"
@@ -107,5 +194,6 @@
             android:scaleType="centerInside"
             app:srcCompat="@drawable/room_editor_button" />
     </LinearLayout>
+    <!-- End Bottom Buttons -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

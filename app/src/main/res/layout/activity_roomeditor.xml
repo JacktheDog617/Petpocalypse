@@ -51,6 +51,7 @@
     </LinearLayout>
     <!-- End of Room Editor Top Bar -->
 
+    <!-- Room Layout -->
     <LinearLayout
         android:id="@+id/room_layout"
         android:layout_width="wrap_content"
@@ -62,14 +63,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <!-- Default Room -->
         <ImageView
             android:id="@+id/base_room"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/empty_room"/>
-
     </LinearLayout>
+    <!-- End of Room Layout -->
 
+    <!-- Editor Options Bar -->
     <LinearLayout
         android:id="@+id/EditorOptionsBar"
         android:layout_width="match_parent"
@@ -88,6 +91,7 @@
             android:textSize="30sp">
         </TextView>
 
+        <!-- Temporary Work in Progress Message -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,5 +103,5 @@
         </TextView>
         <!-- Editor options should go here -->
     </LinearLayout>
-
+    <!-- End of Editor Options Bar -->
 </androidx.constraintlayout.widget.ConstraintLayout>

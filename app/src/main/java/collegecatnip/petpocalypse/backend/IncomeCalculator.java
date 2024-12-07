@@ -25,7 +25,7 @@ public class IncomeCalculator
     {
         int final_income; // total_income generated in integer form
         double total_income = 0; // for calculating total_income
-        ArrayList<Pet> pet_array = player.getPetsOwned();
+        ArrayList<Pet> pet_array = PlayerData.getPetsOwned();
         double[][] multiplier_array = player.getMultipliers();
 
         /* for every pet income, add to total_income */
@@ -37,19 +37,19 @@ public class IncomeCalculator
                 switch(pet_array.get(i).getRarity())
                 {
                     case 1:
-                        total_income = total_income + 1;
+                        total_income = total_income + (1 * pet_array.get(i).getLevel());
                         break;
                     case 2:
-                        total_income = total_income + 2;
+                        total_income = total_income + (2 * pet_array.get(i).getLevel());
                         break;
                     case 3:
-                        total_income = total_income + 3;
+                        total_income = total_income + (3 * pet_array.get(i).getLevel());
                         break;
                     case 4:
-                        total_income = total_income + 4;
+                        total_income = total_income + (4 * pet_array.get(i).getLevel());
                         break;
                     case 5:
-                        total_income = total_income + 5;
+                        total_income = total_income + (5 * pet_array.get(i).getLevel());
                         break;
                     default:
                         System.out.println("An error occured at line 34 of the calculateIncome() switch case.");

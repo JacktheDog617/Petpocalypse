@@ -15,6 +15,10 @@
         android:theme="@style/Theme.Petpocalypse"
         tools:targetApi="31" >
         <activity
+            android:name=".ui.PettionaryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Petpocalypse" />
+        <activity
             android:name=".ui.RoomEditorActivity"
             android:exported="true"
             android:theme="@style/Theme.Petpocalypse" />

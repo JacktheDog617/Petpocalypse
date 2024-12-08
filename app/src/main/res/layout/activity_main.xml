@@ -373,7 +373,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/shop_background"
+            android:background="@color/shop_butt_background"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/shop_button" />
 

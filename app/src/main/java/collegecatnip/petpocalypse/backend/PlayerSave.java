@@ -154,7 +154,6 @@ public class PlayerSave {
                     .registerTypeAdapter(PlayerData.class, new PlayerTypeAdapter(petGson))
                     .setPrettyPrinting()
                     .create();
-            System.out.println("I am supposed to be loading the premade saves but I am dumb and broken. Bite Me");
             PlayerData playerData = gson.fromJson(json, PlayerData.class);
             playerData.printInfo();
             return playerData;

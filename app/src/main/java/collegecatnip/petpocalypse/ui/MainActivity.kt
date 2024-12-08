@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { view, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.updatePadding(bottom = insets.bottom) // Apply bottom padding
+            view.updatePadding(top = insets.top) // Apply top padding
             WindowInsetsCompat.CONSUMED
         }
 
@@ -92,8 +93,8 @@ class MainActivity : AppCompatActivity() {
             sfxPlayer.play(buttonClick, 1f, 1f, 0, 0, 1f)
             // stop music
             musicPlayer.pause()
-            //val intent = Intent(this, PettionaryActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, PettionaryActivity::class.java)
+            startActivity(intent)
         }
 
         val creditsButton: Button = findViewById(R.id.creditsButton)
@@ -101,6 +102,18 @@ class MainActivity : AppCompatActivity() {
             // play button noise
             sfxPlayer.play(buttonClick, 1f, 1f, 0, 0, 1f)
             val cardView = findViewById<View>(R.id.credits)
+            if (cardView.visibility == View.VISIBLE) {
+                cardView.visibility = View.GONE
+            } else {
+                cardView.visibility = View.VISIBLE
+            }
+        }
+
+        val statsButton: Button = findViewById(R.id.statsButton)
+        statsButton.setOnClickListener {
+            // play button noise
+            sfxPlayer.play(buttonClick, 1f, 1f, 0, 0, 1f)
+            val cardView = findViewById<View>(R.id.stats)
             if (cardView.visibility == View.VISIBLE) {
                 cardView.visibility = View.GONE
             } else {

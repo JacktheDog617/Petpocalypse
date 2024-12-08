@@ -9,6 +9,7 @@ Date Created: 12/7/2024
  */
 
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -27,6 +28,8 @@ class PettionaryActivity : AppCompatActivity() {
     private lateinit var petSprites: Array<Drawable>
     private lateinit var petReal: Array<Drawable>
     private lateinit var boba: ArrayList<Pet> //copy of player petsOwned named boba cause bored
+    private lateinit var musicPlayer: MediaPlayer
+    private lateinit var imageButtonIds: Array<Int>
 
     var sizes = mapOf(1 to "Small", 2 to "Medium", 3 to "Large", 4 to "Extra Large")
 
@@ -34,12 +37,24 @@ class PettionaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pettionary)
 
+        // play background music
+        musicPlayer = MediaPlayer.create(this, R.raw.happy_farm_loop)
+        musicPlayer.isLooping = true
+        musicPlayer.start()
+
         //Array of image button ids to loop through to set click listeners
-        val imageButtonIds = arrayOf(
+        imageButtonIds = arrayOf(
             R.id.pettionary_secret_button,
             R.id.pettionary_exit_button,
-            R.id.card_exit_button,
+            R.id.card_exit_button
         )
+
+        //Loop through the image button ids and set click listeners & image displays
+        for (imageButtonId in imageButtonIds) {
+            findViewById<ImageButton>(imageButtonId).setOnClickListener {
+                handleImageButtonClick(imageButtonId)
+            }
+        }
 
         //Array of pet card ids
         val petCards = arrayOf(
@@ -152,19 +167,20 @@ class PettionaryActivity : AppCompatActivity() {
         //Copy petsOwned from playerData for use in pettionary
         boba = PlayerData.getPetsOwned()
 
-        //Loop through the image button ids and set click listeners & image displays
-        for (imageButtonId in imageButtonIds) {
-            findViewById<ImageButton>(imageButtonId).setOnClickListener {
-                handleImageButtonClick(imageButtonId)
-            }
-        }
-
+        //Loop through owned pets to set click listeners & displays
         for (petCards in petCards) {
             findViewById<ImageView>(petCards).setOnClickListener {
                 petCardClick(petCards)
             }
         }
 
+        //set image switch
+        findViewById<ImageButton>(R.id.pettionary_image).setOnClickListener {
+            if (findViewById<ImageButton>(R.id.pettionary_image).drawable == petReal[R.id.pettionary_number-1])
+                findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petSprites[R.id.pettionary_number-1])
+            else
+                findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petReal[R.id.pettionary_number-1])
+        }
     }
 
     private fun handleImageButtonClick(imageButtonId: Int) {
@@ -175,6 +191,8 @@ class PettionaryActivity : AppCompatActivity() {
             }
 
             R.id.pettionary_exit_button -> {
+                musicPlayer.pause()
+                musicPlayer.reset()
                 finish()
             }
 
@@ -250,5 +268,10 @@ class PettionaryActivity : AppCompatActivity() {
             } else
                 return false
         }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        musicPlayer.release()
+    }
 }
 

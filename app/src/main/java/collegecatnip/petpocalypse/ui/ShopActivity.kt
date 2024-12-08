@@ -192,11 +192,13 @@ class ShopActivity : AppCompatActivity() {
         musicPlayer.release()
     }
 
+    // Error, not recieving button press
     @SuppressLint("SetTextI18n")
     private fun handleButtonClick(buttonId: Int) {
         when (buttonId) {
             R.id.carrier_basic -> {
                 // Handle basic button click
+                System.out.println("Received button press...")
                 var new_pet: Pet = shop.buyBasicPetCarrier()
                 if (new_pet != null)
                     petDisplay(new_pet)

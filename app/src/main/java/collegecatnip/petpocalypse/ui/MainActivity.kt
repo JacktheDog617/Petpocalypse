@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Load player data
-        var save = PlayerSave(getApplicationContext(), 3)
+        var save = PlayerSave(getApplicationContext(), 2)
         var playerData = PlayerData()
 
         // Handle insets
@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Credits button
         val creditsButton: Button = findViewById(R.id.creditsButton)
         creditsButton.setOnClickListener {
             // play button noise
@@ -109,6 +110,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Stats button
         val statsButton: Button = findViewById(R.id.statsButton)
         statsButton.setOnClickListener {
             // play button noise
@@ -117,6 +119,30 @@ class MainActivity : AppCompatActivity() {
             if (cardView.visibility == View.VISIBLE) {
                 cardView.visibility = View.GONE
             } else {
+                var petCount = 0;
+                var EarningRate = 0;
+                for(pet in PlayerData.getPetsOwned())
+                {
+                    if(pet.isOwned)
+                    {
+                        petCount++;
+                        EarningRate += (pet.getRarity() * pet.getLevel())
+                    }
+                }
+                cardView.findViewById<TextView>(R.id.TotalCats).text = String.format(Locale.ENGLISH,"Total Cats Owned: %d", petCount)
+                cardView.findViewById<TextView>(R.id.EarningRate).text = String.format(Locale.ENGLISH,"Earning Rate: %d", EarningRate)
+
+                var multipliers = playerData.multipliers
+                var totalMultiplier = 0.0;
+                for (i in 0 until multipliers.size)
+                {
+                    if(multipliers[i][2] == 1.0)
+                    {
+                        totalMultiplier += 0.5;
+                    }
+                }
+                cardView.findViewById<TextView>(R.id.Multipliers).text = String.format(Locale.ENGLISH,"Total Multiplier: %.1f", totalMultiplier)
+
                 cardView.visibility = View.VISIBLE
             }
         }
@@ -218,7 +244,7 @@ class MainActivity : AppCompatActivity() {
         var player = PlayerData();
         var multipliers = player.multipliers
 
-        for (i in 1 until multipliers.size)
+        for (i in 0 until multipliers.size)
         {
             if(multipliers[i][2] == 1.0)
             {

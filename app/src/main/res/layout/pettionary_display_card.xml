@@ -235,7 +235,7 @@ Patch Notes:
                 android:layout_weight=".5"
                 >
                 <!--Image of cat-->
-                <ImageView
+                <ImageButton
                     android:id="@+id/pettionary_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -245,7 +245,7 @@ Patch Notes:
                     android:padding="6dp"
                     tools:ignore="HardcodedText"
                     >
-                </ImageView>
+                </ImageButton>
             </LinearLayout>
 
         </LinearLayout><!--End of top half layout-->

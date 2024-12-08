@@ -8,9 +8,9 @@ package collegecatnip.petpocalypse.ui
  * @date 10/13/2024
  *
  * @author Jaime Lee
- * Date last modified: 12/06/2024
+ * Date last modified: 12/07/2024
  * Patch Notes:
- *      Added room items
+ *      Added burger boi
  */
 
 import android.content.Intent
@@ -18,6 +18,7 @@ import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -72,6 +73,41 @@ class MainActivity : AppCompatActivity() {
         buttonClick = sfxPlayer.load(this, R.raw.bubble_sound, 1)
 
         // Set up button listeners
+        val burgerboi: ImageButton = findViewById(R.id.burgerboi)
+        burgerboi.setOnClickListener {
+            // play button noise
+            sfxPlayer.play(buttonClick, 1f, 1f, 0, 0, 1f)
+            val cardView = findViewById<View>(R.id.dropdown)
+            if (cardView.visibility == View.VISIBLE) {
+                cardView.visibility = View.GONE
+            } else {
+                cardView.visibility = View.VISIBLE
+            }
+        }
+
+        // Pettionary button
+        val pettionaryButton: Button = findViewById(R.id.pettionaryButton)
+        pettionaryButton.setOnClickListener {
+            // play button noise
+            sfxPlayer.play(buttonClick, 1f, 1f, 0, 0, 1f)
+            // stop music
+            musicPlayer.pause()
+            //val intent = Intent(this, PettionaryActivity::class.java)
+            //startActivity(intent)
+        }
+
+        val creditsButton: Button = findViewById(R.id.creditsButton)
+        creditsButton.setOnClickListener {
+            // play button noise
+            sfxPlayer.play(buttonClick, 1f, 1f, 0, 0, 1f)
+            val cardView = findViewById<View>(R.id.credits)
+            if (cardView.visibility == View.VISIBLE) {
+                cardView.visibility = View.GONE
+            } else {
+                cardView.visibility = View.VISIBLE
+            }
+        }
+
         val shopButton: ImageButton = findViewById(R.id.shop_button)
         shopButton.setOnClickListener {
             // play button noise
@@ -158,18 +194,18 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
 
         var items = arrayOf(
+            findViewById<ImageView>(R.id.item0),
             findViewById<ImageView>(R.id.item1),
             findViewById<ImageView>(R.id.item2),
             findViewById<ImageView>(R.id.item3),
             findViewById<ImageView>(R.id.item4),
             findViewById<ImageView>(R.id.item5),
-            findViewById<ImageView>(R.id.item6),
         )
 
         var player = PlayerData();
         var multipliers = player.multipliers
 
-        for (i in 0 until multipliers.size)
+        for (i in 1 until multipliers.size)
         {
             if(multipliers[i][2] == 1.0)
             {

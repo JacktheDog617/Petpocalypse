@@ -7,6 +7,202 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <!-- Burger Boi -->
+    <ImageButton
+        android:id="@+id/burgerboi"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:layout_constraintEnd_toEndOf="@+id/room_layout"
+        app:srcCompat="@drawable/burgerboi" />
+
+    <!-- Dropdown Menu -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dropdown"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/room_layout"
+        app:layout_constraintTop_toTopOf="@id/top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <!-- Stats Button -->
+            <Button
+                android:id="@+id/statsButton"
+                android:backgroundTint="@color/dropdown_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:text="Stats"
+                android:textSize="15sp"/>
+
+            <!-- Pettionary Button -->
+            <Button
+                android:id="@+id/pettionaryButton"
+                android:backgroundTint="@color/dropdown_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:text="Pettionary"
+                android:textSize="15sp" />
+
+            <!-- Credits Toggle -->
+            <Button
+                android:id="@+id/creditsButton"
+                android:backgroundTint="@color/dropdown_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:text="Credits"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <!-- End Dropdown -->
+
+    <!-- Credits -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/overlock_bold"
+                android:text="@string/app_name"
+                android:layout_gravity="center"
+                android:textSize="20sp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/overlock_italic"
+                android:text="by"
+                android:layout_gravity="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/overlock_black"
+                android:layout_margin="10dp"
+                android:text="@string/dev_credits"
+                android:textAlignment="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/overlock_black"
+                android:layout_margin="10dp"
+                android:text="@string/copyright_credits"
+                android:textAlignment="center"
+                android:textSize="15sp">
+            </TextView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <!-- End Credits -->
+
+    <!-- Stats -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/TotalCats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/overlock_black"
+                android:layout_margin="10dp"
+                android:text="Error"
+                android:textAlignment="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/EarningRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/overlock_black"
+                android:layout_margin="10dp"
+                android:text="Error"
+                android:textAlignment="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/Multipliers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/overlock_black"
+                android:layout_margin="10dp"
+                android:text="Error"
+                android:textAlignment="center"
+                android:textSize="15sp">
+            </TextView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <!-- End Stats -->
+
     <!-- Main Room -->
     <FrameLayout
         android:id="@+id/room_layout"
@@ -23,82 +219,89 @@
             android:id="@+id/MainRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/empty_room"/>
+            app:srcCompat="@drawable/empty_room" />
 
         <!-- Items -->
+        <ImageView
+            android:id="@+id/item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:srcCompat="@drawable/couch_item_2" />
+
         <ImageView
             android:id="@+id/item2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/couch_item_2"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/plant_item_3" />
 
         <ImageView
             android:id="@+id/item3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/plant_item_3"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/rug_item_4" />
 
         <ImageView
             android:id="@+id/item4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/rug_item_4"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/shelf_item_5" />
 
         <ImageView
             android:id="@+id/item5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/shelf_item_5"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/stable_table_item_6" />
 
+        <!-- Room item 0 down here so that it displays on the right layer -->
         <ImageView
-            android:id="@+id/item6"
+            android:id="@+id/item0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/stable_table_item_6"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/bed_item_1" />
         <!-- End Items -->
 
         <!-- Cats Placed in Room -->
         <ImageView
-            android:id="@+id/item1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bed_item_1"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/thai_room" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/thai_room"
-            android:visibility="visible" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/keyboard_room" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/keyboard_room"
-            android:visibility="visible" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/norwegian_room" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/norwegian_room"
-            android:visibility="visible" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/taco_room" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/taco_room"
-            android:visibility="visible" />
+            android:visibility="gone"
+            app:srcCompat="@drawable/sphynx_room" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sphynx_room"
-            android:visibility="visible" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/selkirk_room"/>
+            android:visibility="gone"
+            app:srcCompat="@drawable/munchkin_room" />
         <!-- End Cats Placed in Room -->
     </FrameLayout>
     <!-- End Main Room -->
@@ -110,7 +313,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:paddingTop="20dp"
+        android:paddingTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

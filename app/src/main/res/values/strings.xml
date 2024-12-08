@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Petpocalypse</string>
+    <string name="dev_credits">In Over Our Heads\nIn partnership with\nCollege Catnip\n\nLead Conceptualist: Kendall Devich\nLead Graphical Designer: Madison Ridore\nLead Development Manager: Jaime Lee</string>
+    <string name="copyright_credits">All background music made by Infraction\nConstruction Sound Effect by freesound_community from Pixabay\nBubble noise for buttons Sound Effect by freesound_community from Pixabay</string>
 </resources>

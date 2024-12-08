@@ -2,22 +2,27 @@
 <resources>
 
     <color name="main_background">#9b8b78</color>
-    <color name="shop_background">#cfffd5</color>
+    <color name="dropdown_button">#67f1f3</color>
+    <color name="shop_background">#b97044</color>
+    <color name="shop_butt_background">#cfffd5</color>
     <color name="pet_background">#b1d6fb</color>
     <color name="room_background">#fead95</color>
     <color name="background"> #313131</color>
     <color name="shop_button"> #ffcc00</color>
     <color name="pets_button"> #ff0000</color>
     <color name="room_button"> #0066ff</color>
-    <color name="pumpkin_orange"> #FF9002</color>
     <color name="ric_burgandy"> #990000</color>
     <color name="ric_yellow"> #F1B434</color>
-    <color name="cyan"> #17F7E6</color>
-    <color name="royal_blue"> #072BEF</color>
-    <color name="lilac"> #FE8BF7</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#cccccc</color>
+
+    <!--Pet Rarity Colors-->
+    <color name="common">#adaca8</color>
+    <color name="rare">#1974d5</color>
+    <color name="legendary">#FF9002</color>
+    <color name="mystery">#9d09a0</color>
+        <!--Dev has a drawable-->
     
 </resources>
 

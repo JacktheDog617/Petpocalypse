@@ -1,32 +1,845 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<!--
+Primary Shop Activity Layout Page
+
+@author Kendall Devich
+Date Created: 10/5/2024
+
+Last Modified: 12/7/2024
+Patch Notes:
+    Updated ID names
+    Added more comments
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ShopActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
+    <!--This includes the shop background that is a separate layout-->
+    <include layout="@layout/shop_background" />
+
+    <!--This includes the pettionary display card that is a separate layout
+    This is the same card that is used in the pettionary-->
+    <include layout="@layout/pettionary_display_card" />
+
+    <!--This includes the multi-purchase display card that is a separate layout-->
+    <include layout="@layout/multi_buy" />
+
+    <!--Outer layer to make the buttons scroll
+    This is the pet carrier layer-->
+    <ScrollView
+        android:id="@+id/carrier_shop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        >
+
+        <!--The carrier buttons are in a seperate layout
+        This brings them into the scroll view-->
+        <include layout="@layout/carrier_slide" />
+    </ScrollView><!--End Carrier Scroll View-->
+
+    <!--Basic Drop Rate Pop up-->
+    <LinearLayout
+        android:id="@+id/drop_rate_basic_popup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <!--Top Spacer-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            >
+        </View>
+
+        <!--This controls the layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--This displays the background for the drop rate pop up-->
+            <ImageView
+                android:id="@+id/drop_rate_basic_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/drop_rate_backdrop"
+                android:scaleType="fitCenter"
+                android:contentDescription="Drop rates for basic carriers"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                app:layout_constraintDimensionRatio="W,1.5:1"
+                tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                >
+            </ImageView>
+
+            <!--This displays the text for the drop rate pop up-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BASIC BOX\nDROP RATES\nCommon: 60%\nRare:31%\nLegendary:5%\nMystical:3%\nDev:1%\n"
+                android:fontFamily="@font/overlock_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/drop_rate_basic_image"
+                app:layout_constraintBottom_toBottomOf="@id/drop_rate_basic_image"
+                tools:ignore="HardcodedText"
+                >
+            </TextView>
+
+            <!--This is the exit button to close the pop up-->
+            <ImageButton
+                android:id="@+id/drop_rate_basic_exit"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/exit_button"
+                android:background="@android:color/transparent"
+                android:contentDescription="drop rate pop up exit button"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/drop_rate_basic_image"
+                tools:ignore="HardcodedText,MissingConstraints"
+                >
+            </ImageButton>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout><!--End Basic Drop Rate Pop up-->
+
+    <!--Silver Drop Rate Pop up-->
+    <LinearLayout
+        android:id="@+id/drop_rate_silver_popup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <!--Top Spacer-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            >
+        </View>
+
+        <!--This controls the layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--This displays the background for the drop rate pop up-->
+            <ImageView
+                android:id="@+id/drop_rate_silver_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/drop_rate_backdrop"
+                android:scaleType="fitCenter"
+                android:contentDescription="Drop rates for basic carriers"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                app:layout_constraintDimensionRatio="W,1.5:1"
+                tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                >
+            </ImageView>
+
+            <!--This displays the silver lootbox drop rate text-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SILVER BOX\nDROP RATES\nCommon: 20%\nRare:50%\nLegendary:20%\nMystical:8%\nDev:2%\n"
+                android:fontFamily="@font/overlock_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/drop_rate_silver_image"
+                app:layout_constraintBottom_toBottomOf="@id/drop_rate_silver_image"
+                tools:ignore="HardcodedText"
+                >
+            </TextView>
+
+            <!--This is the popup exit button-->
+            <ImageButton
+                android:id="@+id/drop_rate_silver_exit"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/exit_button"
+                android:background="@android:color/transparent"
+                android:contentDescription="drop rate pop up exit button"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/drop_rate_silver_image"
+                tools:ignore="HardcodedText,MissingConstraints"
+                >
+            </ImageButton>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout><!--End Silver Drop Rate Pop up-->
+
+    <!--Gold Drop Rate Pop up-->
+    <LinearLayout
+        android:id="@+id/drop_rate_gold_popup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+        <!--Top Spacer-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            >
+        </View>
+
+        <!--This controls the layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--This displays the background for the gold drop rate pop up-->
+            <ImageView
+                android:id="@+id/drop_rate_gold_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/drop_rate_backdrop"
+                android:scaleType="fitCenter"
+                android:contentDescription="Drop rates for gold carriers"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                app:layout_constraintDimensionRatio="W,1.5:1"
+                tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                >
+            </ImageView>
+
+            <!--This displays the text for the gold drop rate-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GOLD BOX\nDROP RATES\nCommon: 10%\nRare:40%\nLegendary:25%\nMystical:15%\nDev:10%\n"
+                android:fontFamily="@font/overlock_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/drop_rate_gold_image"
+                app:layout_constraintBottom_toBottomOf="@id/drop_rate_gold_image"
+                tools:ignore="HardcodedText"
+                >
+            </TextView>
+
+            <!--This is the pop up exit button-->
+            <ImageButton
+                android:id="@+id/drop_rate_gold_exit"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/exit_button"
+                android:background="@android:color/transparent"
+                android:contentDescription="drop rate pop up exit button"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/drop_rate_gold_image"
+                tools:ignore="HardcodedText,MissingConstraints"
+                >
+            </ImageButton>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout><!--End Gold Drop Rate Pop up-->
+
+    <!--Outer layer to make the buttons scroll
+    This is the room item shop layer-->
+    <ScrollView
+        android:id="@+id/room_shop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+
+        <!--Spacer-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <!--Top Spacer-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                >
+            </View>
+
+            <!--Buy Bed-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Buy bed image-->
+                <ImageView
+                    android:id="@+id/buy_bed"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/room_shop_bed"
+                    android:scaleType="centerInside"
+                    android:contentDescription="image of bed for the room"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                    >
+                </ImageView>
+
+                <!--Buy bed text-->
+                <TextView
+                    android:id="@+id/buy_bed_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A nice bed"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toTopOf="@id/buy_bed_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+                <!--Buy bed button-->
+                <Button
+                    android:id="@+id/buy_bed_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buy 1x = 100"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/buy_bed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Spacer-->
+            <include layout="@layout/spacer_100" />
+
+            <!--Buy couch-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Buy couch image-->
+                <ImageView
+                    android:id="@+id/buy_couch"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/room_shop_couch"
+                    android:scaleType="centerInside"
+                    android:contentDescription="image of couch for room"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                    >
+                </ImageView>
+
+                <!--Buy couch text-->
+                <TextView
+                    android:id="@+id/buy_couch_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A nice couch"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toTopOf="@id/buy_couch_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+                <!--Buy couch button-->
+                <Button
+                    android:id="@+id/buy_couch_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buy 1x = 200"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/buy_couch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Spacer-->
+            <include layout="@layout/spacer_100" />
+
+            <!--Buy Plant-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Buy plant image-->
+                <ImageView
+                    android:id="@+id/buy_plant"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/room_shop_plant"
+                    android:scaleType="centerInside"
+                    android:contentDescription="plant for room"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                    >
+                </ImageView>
+
+                <!--Buy plant text-->
+                <TextView
+                    android:id="@+id/buy_plant_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A green plant"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toTopOf="@id/buy_plant_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+                <!--Buy plant button-->
+                <Button
+                    android:id="@+id/buy_plant_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buy 1x = 300"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/buy_plant"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Spacer-->
+            <include layout="@layout/spacer_100" />
+
+            <!--Buy rug-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Buy rug image-->
+                <ImageView
+                    android:id="@+id/buy_rug"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/room_shop_rug"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Rug for room"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                    >
+                </ImageView>
+
+                <!--Buy rug text-->
+                <TextView
+                    android:id="@+id/buy_rug_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A red rug"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toTopOf="@id/buy_rug_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+                <!--Buy plant button-->
+                <Button
+                    android:id="@+id/buy_rug_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buy 1x = 300"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/buy_rug"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Spacer-->
+            <include layout="@layout/spacer_100" />
+
+            <!--Buy shelf-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Buy shelf image-->
+                <ImageView
+                    android:id="@+id/buy_shelf"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/room_shop_shelf"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Shelf for storing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                    >
+                </ImageView>
+
+                <!--Buy shelf text-->
+                <TextView
+                    android:id="@+id/buy_shelf_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A full shelf"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toTopOf="@id/buy_shelf_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+                <!--Buy plant button-->
+                <Button
+                    android:id="@+id/buy_shelf_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buy 1x = 300"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/buy_shelf"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Spacer-->
+            <include layout="@layout/spacer_100" />
+
+            <!--Buy table-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Buy table image-->
+                <ImageView
+                    android:id="@+id/buy_table"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/room_shop_table"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Table for room"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                    >
+                </ImageView>
+
+                <!--Buy table text-->
+                <TextView
+                    android:id="@+id/buy_table_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="A &quot;stable&quot; table"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toTopOf="@id/buy_table_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+                <!--Buy plant button-->
+                <Button
+                    android:id="@+id/buy_table_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buy 1x = 300"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/buy_table"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </Button>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Spacer-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    >
+                </View>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView><!--End of Room Item Scroll View-->
+
+    <!--Outer layer to make the buttons scroll
+    This is the microtransactions shop layer-->
+    <ScrollView
+        android:id="@+id/micro_shop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+        <!--Spacer-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                >
+            </View>
+
+            <!--Coming Soon Message-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Coming Soon Image-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/blank_shop_button"
+                    android:scaleType="centerInside"
+                    android:contentDescription="image of bed for the room"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                    >
+                </ImageView>
+
+                <!--Coming soon message-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="     COMING SOON\n    You can't give us \n your money just yet"
+                    android:fontFamily="@font/overlock_bold"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="28sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_max="wrap"
+                    app:layout_constraintWidth_percent="0.75"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--Spacer-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    >
+                </View>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView><!--End of Microtransactions Scroll View-->
+
+    <!--This includes the Bottom Button Bar that is separate-->
+    <include layout="@layout/shop_bottom_bar" />
+
+    <!--Error Message-->
+    <LinearLayout
+        android:id="@+id/shop_error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Text for error message-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:text="Insufficient \nMoney!"
+                android:fontFamily="@font/overlock_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="@color/pets_button"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent=".75"
+                tools:ignore="HardcodedText,MissingConstraints"
+                >
+            </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <!--The Exit Button-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go Back"
+        android:layout_height="match_parent"
+        >
+        <ImageButton
+            android:id="@+id/shop_exit_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/exit_button"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/overlock_bold"
-            android:text="Shop Placeholder"
-            android:textSize="70sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="shop exit"
+            android:layout_margin="20dp"
+            tools:ignore="HardcodedText"
+            >
+        </ImageButton>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

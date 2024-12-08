@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+The bottom button bar of the shop activity
+
+@author Kendall Devich
+Date Created: 11/30/2024
+
+Last Modified: 12/7/2024
+Patch Notes:
+    Updated ID names
+    Added more comments
+    Removed unused variables and spaces
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--"counter" behind bottom bar-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:background="@color/shop_background"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_gravity="top"
+            android:background="@color/black"
+            >
+        </View>
+    </LinearLayout>
+
+    <!--Bottom Bar to switch tabs-->
+    <LinearLayout
+        android:id="@+id/shop_bottom_button_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:background="@android:color/transparent"
+        android:paddingBottom="10dp"
+        >
+
+        <!--Spacer-->
+        <View
+            android:layout_width="20dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center|bottom"
+            >
+        </View>
+
+        <!--Register-->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="bottom"
+            android:scaleType="fitCenter"
+            android:src="@drawable/shop_register"
+            android:contentDescription="shop register"
+            tools:ignore="HardcodedText,ImageContrastCheck"
+            >
+        </ImageView>
+
+        <!--Carrier shop button-->
+        <ImageButton
+            android:id="@+id/carrier_shop_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/pet_carrier_shop_button"
+            android:layout_gravity="center|bottom"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:contentDescription="pet carrier shop"
+            tools:ignore="HardcodedText"
+            >
+        </ImageButton>
+
+        <!--Spacer-->
+        <View
+            android:layout_width="5dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center|bottom"
+            >
+        </View>
+
+        <!--Room Shop button-->
+        <ImageButton
+            android:id="@+id/room_shop_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/room_item_shop_button"
+            android:layout_gravity="center|bottom"
+            android:scaleType="fitCenter"
+            android:contentDescription="Item shop"
+            android:background="@android:color/transparent"
+            tools:ignore="HardcodedText, ImageContrastCheck"
+            >
+        </ImageButton>
+
+        <!--Spacer-->
+        <View
+            android:layout_width="5dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center|bottom"
+            >
+        </View>
+
+        <!--Micro Shop button-->
+        <ImageButton
+            android:id="@+id/micro_shop_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/microtransactions_shop_button"
+            android:layout_gravity="center|bottom"
+            android:scaleType="fitCenter"
+            android:contentDescription="room item shop"
+            android:background="@android:color/transparent"
+            tools:ignore="HardcodedText"
+            >
+        </ImageButton>
+    </LinearLayout>
+</FrameLayout>

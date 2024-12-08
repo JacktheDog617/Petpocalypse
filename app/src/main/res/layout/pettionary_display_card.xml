@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+The base for the pettionary display card
+also used when displaying newly received pets in the shop
+
+@author Kendall Devich
+Date Created: 12/6/2024
+
+Last Modified: 12/7/2024
+Patch Notes:
+    Updated ID names
+    Added more comments
+    Removed unused variables and spaces
+
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Dimmed Background-->
+    <View
+        android:id="@+id/pettionary_card_dim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:visibility="gone"
+        />
+
+    <!--Common Pettionary Card-->
+    <ImageView
+        android:id="@+id/common_pettionary_card"
+        android:src="@drawable/common_pettionary_card"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Background for Common Pettionary Card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent="1"
+        android:visibility="gone"
+        tools:ignore="hardcodedText"
+        >
+    </ImageView>
+
+    <!--Rare Pettionary Card-->
+    <ImageView
+        android:id="@+id/rare_pettionary_card"
+        android:src="@drawable/rare_pettionary_card"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Background for Rare Pettionary Card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent="1"
+        android:visibility="gone"
+        tools:ignore="hardcodedText"
+        >
+    </ImageView>
+
+    <!--Legendary Pettionary Card-->
+    <ImageView
+        android:id="@+id/legendary_pettionary_card"
+        android:src="@drawable/legendary_pettionary_card"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Background for Legendary Pettionary Card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent="1"
+        android:visibility="gone"
+        tools:ignore="hardcodedText"
+        >
+    </ImageView>
+
+    <!--Mystery Pettionary Card-->
+    <ImageView
+        android:id="@+id/mystery_pettionary_card"
+        android:src="@drawable/mystery_petitonary_card"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Background for Mystery Pettionary Card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent="1"
+        android:visibility="gone"
+        tools:ignore="hardcodedText"
+        >
+    </ImageView>
+
+    <!--Dev Pettionary Card-->
+    <ImageView
+        android:id="@+id/dev_pettionary_card"
+        android:src="@drawable/dev_pettionary_card"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Background for Dev Pettionary Card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent="1"
+        android:visibility="gone"
+        tools:ignore="hardcodedText"
+        >
+    </ImageView>
+
+    <!--Layout to Match size of card-->
+    <LinearLayout
+        android:id="@+id/pettionary_card_text_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent=".52"
+        app:layout_constraintWidth_percent=".83"
+        android:visibility="gone"
+        >
+
+        <!--Layout to cut the top in half-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:layout_weight=".5"
+            >
+
+            <!--Layout to vertically place top left-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight=".5"
+                android:paddingStart="5dp"
+                tools:ignore="NestedWeights,RtlSymmetry"
+                >
+
+                <!--Display the Pettionary ID Number-->
+                <TextView
+                    android:id="@+id/pettionary_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/overlock_black"
+                    android:text="001"
+                    android:textSize="40sp"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+                <!--Display the Breed of the Pet-->
+                <TextView
+                    android:id="@+id/pettionary_breed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/overlock_black"
+                    android:text="Bread Cat"
+                    android:textSize="30sp"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+
+                <!--Layout to put the rarity image next to the Rarity text-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <!--Display the Rarity of the Pet-->
+                    <TextView
+                        android:id="@+id/pettionary_rarity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/overlock_black"
+                        android:text="Rarity:"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        tools:ignore="HardcodedText"
+                        >
+                    </TextView>
+
+                    <!--Display the Rarity Image-->
+                    <ImageView
+                        android:id="@+id/pettionary_rarity_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Rarity Image"
+                        android:src="@drawable/one_fish"
+                        tools:ignore="HardcodedText"
+                        >
+                    </ImageView>
+                </LinearLayout> <!--End of rarity image line up-->
+
+                <!--Display the size of the cat-->
+                <TextView
+                    android:id="@+id/pettionary_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/overlock_black"
+                    android:text="Size:  Large"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText"
+                    >
+                </TextView>
+            </LinearLayout><!--End of top left layout-->
+
+            <!--Layout to vertically place top right-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight=".5"
+                >
+                <!--Image of cat-->
+                <ImageView
+                    android:id="@+id/pettionary_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Cat Image"
+                    android:src="@drawable/real_marley"
+                    android:padding="6dp"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageView>
+            </LinearLayout>
+
+        </LinearLayout><!--End of top half layout-->
+
+        <!--Area for flavor text on the bottom-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".5"
+            >
+
+            <!--Display the Flavor Text-->
+            <TextView
+                android:id="@+id/pettionary_flavor"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
+                android:fontFamily="@font/overlock_black"
+                android:text="Flavor: It is a cat with it's face in some bread."
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                tools:ignore="HardcodedText,NestedWeights"
+                >
+            </TextView>
+
+            <!--Display for the Secret Text-->
+            <TextView
+                android:id="@+id/pettionary_secret"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
+                android:fontFamily="@font/overlock_black"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:text="Secret:???"
+                tools:ignore="HardcodedText"
+                >
+            </TextView>
+        </LinearLayout><!--End of Bottom Flavor Text Area-->
+    </LinearLayout>
+
+    <!--Exit Button -->
+    <ImageButton
+        android:id="@+id/card_exit_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/exit_button"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="shop exit"
+        android:layout_margin="20dp"
+        android:visibility="gone"
+        tools:ignore="HardcodedText"
+        >
+    </ImageButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Dimmed Background-->
+    <View
+        android:id="@+id/multi_buy_dim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:visibility="visible"
+        />
+
+    <!--Background for display-->
+    <ImageView
+        android:id="@+id/multi_back"
+        android:src="@drawable/drop_rate_backdrop"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Background for Common Pettionary Card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent="1"
+        android:paddingHorizontal="5dp"
+        android:visibility="visible"
+        tools:ignore="hardcodedText"
+        >
+    </ImageView>
+    <LinearLayout
+        android:id="@+id/multi_buy_frames"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:visibility="visible"
+        >
+
+        <!--Spacer-->
+        <include layout="@layout/spacer_100" />
+
+        <!--Left Column of frames-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight=".5"
+            >
+
+            <!--Top Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight=".2"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 1 that display lootbox winning"
+                tools:ignore="HardcodedText,NestedWeights"
+                >
+            </ImageButton>
+            <!--Second Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight=".2"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 3 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Third Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_5"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight=".2"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 5 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Fourth Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_7"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 7 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Bottom Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_9"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 9 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+        </LinearLayout>
+
+        <!--Right Column of frames-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <!--Spacer-->
+            <include layout="@layout/spacer_100" />
+
+            <!--Top Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_2"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 2 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Second Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_4"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 4 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Third Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_6"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 6 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Fourth Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_8"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 8 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Bottom Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_10"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame 10 that display lootbox winning"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--Spacer-->
+    <include layout="@layout/spacer_100" />
+
+    <!--Exit Button-->
+    <ImageButton
+        android:id="@+id/multi_buy_exit_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/exit_button"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="shop exit"
+        android:layout_margin="20dp"
+        tools:ignore="HardcodedText"
+        >
+    </ImageButton>
+</androidx.constraintlayout.widget.ConstraintLayout>

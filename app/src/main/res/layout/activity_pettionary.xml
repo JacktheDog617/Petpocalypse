@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Primary Pettionary Activity Layout Page
+
+@author Kendall Devich
+Date Created: 12/6/2024
+
+Last Modified: 12/7/2024
+Patch Notes:
+    Updated ID names
+    Added more comments
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Background-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/pettionary_background"
+        android:scaleType="fitXY"
+        android:contentDescription="Background for Pettionary"
+        tools:ignore="HardcodedText"
+        >
+    </ImageView>
+
+    <!--Scroll View for scrolling purposes-->
+    <ScrollView
+        android:id="@+id/pettionary_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <!--Vertical Layout to hold the horizontal layouts-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <!--Top Spacer-->
+            <include layout="@layout/spacer_100" />
+
+            <!--First Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_1"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #1"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_2"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #2"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Second Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_3"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #3"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_4"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #4"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Third Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_5"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #5"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_6"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #6"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Fourth Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_7"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #7"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_8"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #8"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Fifth Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_9"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #9"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_10"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #10"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Sixth Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_11"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #11"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_12"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #12"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Seventh Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_13"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #13"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_14"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #14"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Eigth Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_15"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #15"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_16"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #16"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Ninth Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_17"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #17"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_18"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #18"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Tenth Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_19"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #19"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_20"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #20"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Eleventh Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_21"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #21"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_22"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #22"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+
+            <!--Last Row of cards-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <!--Left Card-->
+                <ImageButton
+                    android:id="@+id/pettionary_card_23"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/blank_frame"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Frame that can hold cat with Pettionary ID #23"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+                <!--Right Card Space Secret Button-->
+                <ImageButton
+                    android:id="@+id/pettionary_secret_button"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:scaleType="fitCenter"
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Secret Button"
+                    tools:ignore="HardcodedText"
+                    >
+                </ImageButton>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--The Exit Button-->
+    <ImageButton
+        android:id="@+id/pettionary_exit_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/exit_button"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="shop exit"
+        android:layout_margin="20dp"
+        tools:ignore="HardcodedText"
+        >
+    </ImageButton>
+</androidx.constraintlayout.widget.ConstraintLayout>

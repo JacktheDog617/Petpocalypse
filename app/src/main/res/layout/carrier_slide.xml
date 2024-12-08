@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+The lootbox shop activity layout page
+
+@author Kendall Devich
+Date Created: 12/4/2024
+
+Last Modified: 12/7/2024
+Patch Notes:
+    Updated ID names
+    Added more comments
+    Fixed color issue from merge
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--Spacer-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            >
+        </View>
+
+        <!--Basic Carrier button-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Image of basic pet carrier-->
+            <ImageView
+                android:id="@+id/carrier_basic"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pet_carrier_basic"
+                android:scaleType="centerInside"
+                android:contentDescription="image of basic brown pet carrier"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/drop_rate_basic"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                app:layout_constraintDimensionRatio="W,1:1"
+                tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                >
+            </ImageView>
+            <!--Text of basic pet carrier-->
+            <TextView
+                android:id="@+id/carrier_basic_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Basic Pet Carrier"
+                android:fontFamily="@font/overlock_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toTopOf="@id/carrier_basic_money"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </TextView>
+            <!--Buy 1 lootbox button-->
+            <Button
+                android:id="@+id/carrier_basic_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Buy 1x = 100"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:backgroundTint="@color/ric_yellow"
+                app:layout_constraintBottom_toTopOf="@id/carrier_basic_money_multiplier"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </Button>
+            <!--Buy 10 lootbox button-->
+            <Button
+                android:id="@+id/carrier_basic_money_multiplier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Buy 10x = 1000"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:backgroundTint="@color/ric_yellow"
+                app:layout_constraintBottom_toBottomOf="@id/carrier_basic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </Button>
+            <!--Basic Drop rate button-->
+            <Button
+                android:id="@+id/drop_rate_basic"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:backgroundTint="@color/ric_yellow"
+                android:fontFamily="@font/overlock_black"
+                android:text="   Drop Rate   "
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="3dp"
+                android:contentDescription="Opens drop rate popup"
+                app:layout_constraintRight_toRightOf="@id/carrier_basic"
+                app:layout_constraintBottom_toTopOf="@+id/carrier_basic"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck"
+                >
+            </Button>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Spacer-->
+        <include layout="@layout/spacer_100" />
+
+        <!--Silver tier button-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--Silver tier pet carrier image-->
+            <ImageView
+                android:id="@+id/carrier_silver"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pet_carrier_silver"
+                android:scaleType="centerInside"
+                android:layout_marginTop="5dp"
+                android:contentDescription="image of silver tier pet carrier"
+                app:layout_constraintTop_toBottomOf="@+id/drop_rate_silver"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                app:layout_constraintDimensionRatio="W,1:1"
+                tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                >
+            </ImageView>
+            <!--Silver tier pet carrier text-->
+            <TextView
+                android:id="@+id/carrier_button_silver_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Silver Pet Carrier"
+                android:fontFamily="@font/overlock_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toTopOf="@id/carrier_silver_money"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </TextView>
+            <!--Buy 1 Silver box button-->
+            <Button
+                android:id="@+id/carrier_silver_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Buy 1x = 200"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:backgroundTint="@color/ric_yellow"
+                app:layout_constraintBottom_toTopOf="@id/carrier_silver_money_multiplier"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </Button>
+            <!--Buy 10 Silver box button-->
+            <Button
+                android:id="@+id/carrier_silver_money_multiplier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Buy 10x = 2000"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:backgroundTint="@color/ric_yellow"
+                app:layout_constraintBottom_toBottomOf="@id/carrier_silver"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </Button>
+            <!--Silver Drop rate button-->
+            <Button
+                android:id="@+id/drop_rate_silver"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:backgroundTint="@color/ric_yellow"
+                android:fontFamily="@font/overlock_black"
+                android:text="   Drop Rate   "
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:padding="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/carrier_silver"
+                app:layout_constraintRight_toRightOf="@id/carrier_silver"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck"
+                >
+
+            </Button>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Spacer-->
+        <include layout="@layout/spacer_100" />
+
+        <!--Gold tier button-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--Gold tier pet carrier image-->
+            <ImageView
+                android:id="@+id/carrier_gold"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/pet_carrier_gold"
+                android:scaleType="centerInside"
+                android:layout_marginTop="5dp"
+                android:contentDescription="image of gold tier pet carrier"
+                app:layout_constraintTop_toBottomOf="@+id/drop_rate_gold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                app:layout_constraintDimensionRatio="W,1:1"
+                tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck"
+                >
+            </ImageView>
+            <!--Gold tier pet carrier text-->
+            <TextView
+                android:id="@+id/carrier_button_gold_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Basic Pet Carrier"
+                android:fontFamily="@font/overlock_bold"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toTopOf="@id/carrier_gold_money"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </TextView>
+            <!--Buy 1 Gold box button-->
+            <Button
+                android:id="@+id/carrier_gold_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Buy 1x = 300"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:backgroundTint="@color/ric_yellow"
+                app:layout_constraintBottom_toTopOf="@id/carrier_gold_money_multiplier"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </Button>
+            <!--Buy 10 Gold box button-->
+            <Button
+                android:id="@+id/carrier_gold_money_multiplier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Buy 10x = 3000"
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:backgroundTint="@color/ric_yellow"
+                app:layout_constraintBottom_toBottomOf="@id/carrier_gold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="wrap"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="HardcodedText"
+                >
+            </Button>
+            <!--Gold Drop Rate Button-->
+            <Button
+                android:id="@+id/drop_rate_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:text="   Drop Rate   "
+                android:fontFamily="@font/overlock_black"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:backgroundTint="@color/ric_yellow"
+                android:padding="3dp"
+                app:layout_constraintRight_toRightOf="@id/carrier_gold"
+                app:layout_constraintBottom_toTopOf="@+id/carrier_gold"
+                tools:ignore="HardcodedText"
+                >
+            </Button>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--Bottom Spacer-->
+        <include layout="@layout/spacer_100" />
+        <include layout="@layout/spacer_100" />
+    </LinearLayout>
+</FrameLayout>

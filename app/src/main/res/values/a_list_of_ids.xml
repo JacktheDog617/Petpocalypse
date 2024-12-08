@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+
+
+
+    Pettionary card template:
+        pettionary_card_dim
+        common_pettionary_card
+        rare_pettionary_card
+        legendary_pettionary_card
+        mystery_pettionary_card
+        dev_pettionary_card
+        pettionary_card_text_layout
+        pettionary_number
+        pettionary_breed
+        pettionary_rarity
+        pettionary_rarity_image
+        pettionary_size
+        pettionary_image
+        pettionary_flavor
+        pettionary_secret
+
+    Pettionary Activity:
+        pettionary_card_1
+        pettionary_card_2
+        pettionary_card_3
+        pettionary_card_4
+        pettionary_card_5
+        pettionary_card_6
+        pettionary_card_7
+        pettionary_card_8
+        pettionary_card_9
+        pettionary_card_10
+        pettionary_card_11
+        pettionary_card_12
+        pettionary_card_13
+        pettionary_card_14
+        pettionary_card_15
+        pettionary_card_16
+        pettionary_card_17
+        pettionary_card_18
+        pettionary_card_19
+        pettionary_card_20
+        pettionary_card_21
+        pettionary_card_22
+        pettionary_card_23
+        pettionary_secret_button
+        pettionary_exit_button
+
+    Multi Buy template:
+        multi_buy_dim
+        multi_back
+        multi_buy_frames
+        multi_buy_frame_1
+        multi_buy_frame_2
+        multi_buy_frame_3
+        multi_buy_frame_4
+        multi_buy_frame_5
+        multi_buy_frame_6
+        multi_buy_frame_7
+        multi_buy_frame_8
+        multi_buy_frame_9
+        multi_buy_frame_10
+        multi_buy_exit_button
+
+
+        THE CAKE IS A LIE
+    -->
+</resources>

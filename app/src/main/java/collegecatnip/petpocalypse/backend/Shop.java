@@ -9,11 +9,15 @@ package collegecatnip.petpocalypse.backend;
  * Last Modified: 11/29/2024
  * Patch Notes:
  *      Fixed things
+ *
+ * @author Kendall Devich
+ * Last Modified: 12/7/2024
+ * Patch Notes:
+ *      Edited buy classes to return items
  */
 import java.util.ArrayList;
 
 public class Shop {
-    int tempID = 0;
     private LootBox petCarrier;
 
     private PlayerData playerData;
@@ -95,7 +99,7 @@ public class Shop {
 //}
 
     // method to buy a basic pet carrier
-    public void buyBasicPetCarrier() {
+    public Pet buyBasicPetCarrier() {
 
         if (playerData.getLove() >= BASIC_PET_CARRIER_COST) {
             playerData.setLove(playerData.getLove() - BASIC_PET_CARRIER_COST);
@@ -105,19 +109,19 @@ public class Shop {
 
             playerData.givePet(new_pet);
 
-            displayCatDetails(playerData.getPet(new_pet));
-            System.out.println("You opened a Basic Pet Carrier!");
+            return (playerData.getPet(new_pet));
+            //System.out.println("You opened a Basic Pet Carrier!");
         } else {
-            System.out.println("Not enough Love to buy this pet carrier!");
-
-            long remaining = BASIC_PET_CARRIER_COST - playerData.getLove();
-
-            System.out.println(remaining + " more love is needed to buy this pet carrier");
+            //Returns null if not enough money
+            return null;
+            //System.out.println("Not enough Love to buy this pet carrier!");
+            //long remaining = BASIC_PET_CARRIER_COST - playerData.getLove();
+            //System.out.println(remaining + " more love is needed to buy this pet carrier");
         }
     }
 
     // method to buy a silver pet carrier
-    public void buySilverPetCarrier() {
+    public Pet buySilverPetCarrier() {
 
         if (playerData.getLove() >= SILVER_PET_CARRIER_COST) {
             playerData.setLove(playerData.getLove() - SILVER_PET_CARRIER_COST);
@@ -126,19 +130,18 @@ public class Shop {
 
             playerData.givePet(new_pet);
 
-            displayCatDetails(playerData.getPet(new_pet));
-            System.out.println("You opened a Silver Pet Carrier!");
+            return (playerData.getPet(new_pet));
+            //System.out.println("You opened a Silver Pet Carrier!");
         } else {
-            System.out.println("Not enough Love to buy this pet carrier!");
-
-            long remaining = SILVER_PET_CARRIER_COST - playerData.getLove();
-
-            System.out.println(remaining + " more love is needed to buy this pet carrier");
+            return null;
+            //System.out.println("Not enough Love to buy this pet carrier!");
+            //long remaining = SILVER_PET_CARRIER_COST - playerData.getLove();
+            //System.out.println(remaining + " more love is needed to buy this pet carrier");
         }
     }
 
     // method to buy a golden pet carrier
-    public void buyGoldPetCarrier() {
+    public Pet buyGoldPetCarrier() {
 
         if (playerData.getLove() >= GOLD_PET_CARRIER_COST) {
             playerData.setLove(playerData.getLove() - GOLD_PET_CARRIER_COST);
@@ -147,38 +150,34 @@ public class Shop {
 
             playerData.givePet(new_pet);
 
-            displayCatDetails(playerData.getPet(new_pet));
-            System.out.println("You opened a Golden Pet Carrier!");
+            return (playerData.getPet(new_pet));
+            //System.out.println("You opened a Golden Pet Carrier!");
         } else {
-            System.out.println("Not enough Love to buy this pet carrier!");
-
-            long remaining = GOLD_PET_CARRIER_COST - playerData.getLove();
-
-            System.out.println(remaining + " more love is needed to buy this pet carrier");
+            return null;
+            //System.out.println("Not enough Love to buy this pet carrier!");
+            //long remaining = GOLD_PET_CARRIER_COST - playerData.getLove();
+            //System.out.println(remaining + " more love is needed to buy this pet carrier");
         }
     }
     
-    public void buyRoomItem(int itemID)
+    public boolean buyRoomItem(int itemID)
     {
         int this_item_cost = ROOM_ITEM_COST + (ROOM_ITEM_COST * (itemsOwned * itemsOwned));
-        switch(itemID)
-        {
-            case 1:
-                if (playerData.getLove() >= this_item_cost) {
-                    playerData.setLove(playerData.getLove() - this_item_cost);
 
-                    playerData.toggleMultiplier(tempID, 1);
-                    tempID++;
-                    
-                    System.out.println("You bought a room item!");
-                } else {
-                    System.out.println("Not enough Love to buy a room item!");
+        if (playerData.getLove() >= this_item_cost) {
+            playerData.setLove(playerData.getLove() - this_item_cost);
 
-                    long remaining = ROOM_ITEM_COST - playerData.getLove();
+            playerData.toggleMultiplier(itemID, 1);
 
-                    System.out.println(remaining + " more love is needed to buy a room item.");
-                }
+            return true;
+            //System.out.println("You bought a room item!");
+        } else {
+            return false;
+            //System.out.println("Not enough Love to buy a room item!");
+            //long remaining = ROOM_ITEM_COST - playerData.getLove();
+            //System.out.println(remaining + " more love is needed to buy a room item.");
         }
+
     }
 
     private void displayCatDetails(Pet cat) {

@@ -5,6 +5,11 @@ package collegecatnip.petpocalypse.backend;
  * @author Kendall Devich
  * Date Created: 9/23/2024
  *
+ * @author Madison Ridore
+ * Last Modified: 11/22/2024
+ *     Added a ToString
+ *     Changed the changedOwned method 
+ *
  * @author Jaime Lee
  * Last Modified: 11/26/2024
  * Patch Notes:

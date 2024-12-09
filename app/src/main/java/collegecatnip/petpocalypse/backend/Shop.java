@@ -4,6 +4,11 @@ package collegecatnip.petpocalypse.backend;
  *
  * @author Madison Ridore
  * Date Created: 9/23/2024
+ * Last Modified: 11/22/2024
+ *     - Added the give basic pet method 
+ *     - Made the buyPet method
+ *     - Made an error exception just in case the json file wont load it will throw an exception
+ *     - Made a ToString to display the cat details 
  *
  * @author Jaime Lee
  * Last Modified: 11/29/2024

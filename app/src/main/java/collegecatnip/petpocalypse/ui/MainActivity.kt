@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         2 = partial filled save
         3 = finished game state
          */
-        var save = PlayerSave(getApplicationContext(), 1)
+        var save = PlayerSave(getApplicationContext(), 3)
         var playerData = PlayerData()
 
         playerData.love = 1100
@@ -208,10 +208,6 @@ class MainActivity : AppCompatActivity() {
         var loveCounter: TextView = findViewById(R.id.love_counter)
         var treatsCounter: TextView = findViewById(R.id.treats_counter)
 
-        // Update love and treat counters
-        loveNum = playerData.getLove();
-        treatsNum = playerData.getTreats();
-
         // Calculate income
         var incomeCalc = IncomeCalculator();
         var incomeIncrease: Long = incomeCalc.calculateIncome();
@@ -224,8 +220,8 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             while (isActive) {
                 delay(1000)
-                loveNum += incomeIncrease; // Increment currency
-                playerData.setLove(loveNum); // Save currency
+                playerData.setLove(playerData.getLove() + incomeIncrease); // Increment currency
+                var loveNum = playerData.getLove() // ; // Save currency
                 withContext(Dispatchers.Main) {
                     if (loveNum / 1000 < 1) // if under 1000
                     {                       // show user 1000

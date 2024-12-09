@@ -24,6 +24,7 @@ import java.util.Locale
 
 class PettionaryActivity : AppCompatActivity() {
 
+    private lateinit var petCards: Array<Int>
     private lateinit var petFrames: Array<Drawable>
     private lateinit var petSprites: Array<Drawable>
     private lateinit var petReal: Array<Drawable>
@@ -43,7 +44,7 @@ class PettionaryActivity : AppCompatActivity() {
         musicPlayer.start()
 
         //Array of pet card ids
-        val petCards = arrayOf(
+        petCards = arrayOf(
             R.id.pettionary_card_1,
             R.id.pettionary_card_2,
             R.id.pettionary_card_3,
@@ -154,19 +155,22 @@ class PettionaryActivity : AppCompatActivity() {
         boba = PlayerData.getPetsOwned()
 
         //Loop through owned pets to set click listeners & displays
-        for (petCards in petCards) {
-            findViewById<ImageView>(petCards).setOnClickListener {
-                petCardClick(petCards)
+        for (i in 0 until petCards.size) {
+            if(boba[i].isOwned == true) {
+                findViewById<ImageView>(petCards[i]).setImageDrawable(petFrames[i])
+                findViewById<ImageView>(petCards[i]).setOnClickListener {
+                    petCardClick(i)
+                }
             }
         }
 
-        //set image switch
-        findViewById<ImageButton>(R.id.pettionary_image).setOnClickListener {
-            if (findViewById<ImageButton>(R.id.pettionary_image).drawable == petReal[R.id.pettionary_number-1])
-                findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petSprites[R.id.pettionary_number-1])
-            else
-                findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petReal[R.id.pettionary_number-1])
-        }
+//            //set image switch
+//            findViewById<ImageButton>(R.id.pettionary_image).setOnClickListener {
+//                if (findViewById<ImageButton>(R.id.pettionary_image).drawable == petReal[R.id.pettionary_number - 1])
+//                    findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petSprites[R.id.pettionary_number - 1])
+//                else
+//                    findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petReal[R.id.pettionary_number - 1])
+//            }
 
         //Array of image button ids to loop through to set click listeners
         imageButtonIds = arrayOf(
@@ -205,69 +209,71 @@ class PettionaryActivity : AppCompatActivity() {
                 findViewById<View>(R.id.legendary_pettionary_card).visibility = View.GONE
                 findViewById<View>(R.id.mystery_pettionary_card).visibility = View.GONE
                 findViewById<View>(R.id.dev_pettionary_card).visibility = View.GONE
+                findViewById<View>(R.id.card_exit_button).visibility = View.GONE
             }
         }
     }
 
-    private fun petCardClick(petCards: Int) {
+    private fun petCardClick(petCardsNum: Int) {
         //Sets the information into the card
-        if(boba[petCards].isOwned == true) {
-            findViewById<ImageView>(petCards).setImageDrawable(petFrames[boba[petCards].pettionaryID - 1])
-            petDisplay(boba[petCards])
+        if(boba[petCardsNum].isOwned == true) {
+            findViewById<ImageView>(petCards[petCardsNum]).setImageDrawable(petFrames[petCardsNum])
+            petDisplay(boba[petCardsNum])
         }
     }
 
     private fun petDisplay(new_pet: Pet) {
-            //Sets the information into the card
-            findViewById<TextView>(R.id.pettionary_number).text = new_pet.getPettionaryID().toString()
-            findViewById<TextView>(R.id.pettionary_breed).text = new_pet.getBreed()
+        //Sets the information into the card
+        findViewById<TextView>(R.id.pettionary_number).text = new_pet.getPettionaryID().toString()
+        findViewById<TextView>(R.id.pettionary_breed).text = new_pet.getBreed()
 
-            //Checks the rarity and sets the card and fish images accordingly
-            when (new_pet.getRarity()) {
-                1 -> {
-                    findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.one_fish)
-                    findViewById<ImageView>(R.id.common_pettionary_card).visibility = View.VISIBLE}
-                2 -> {
-                    findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.two_fish)
-                    findViewById<ImageView>(R.id.rare_pettionary_card).visibility = View.VISIBLE}
-                3 -> {
-                    findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.three_fish)
-                    findViewById<ImageView>(R.id.legendary_pettionary_card).visibility = View.VISIBLE}
-                4 -> {
-                    findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.four_fish)
-                    findViewById<ImageView>(R.id.mystery_pettionary_card).visibility = View.VISIBLE}
-                5 -> {
-                    findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.five_fish)
-                    findViewById<ImageView>(R.id.dev_pettionary_card).visibility = View.VISIBLE}
-            }
-
-            findViewById<TextView>(R.id.pettionary_size).text = String.format(Locale.ENGLISH, "Size: %s", sizes[new_pet.getSize()])
-            findViewById<ImageView>(R.id.pettionary_image).setImageDrawable(petSprites[new_pet.pettionaryID-1])
-
-            findViewById<TextView>(R.id.pettionary_flavor).text = "Flavor Text: " + new_pet.flavorText
-            if (displaySecret(new_pet.getRarity(), new_pet.getLevel(), new_pet.getDuplicates()))
-                findViewById<TextView>(R.id.pettionary_secret).text = "Secret: " + new_pet.secret
-            else
-                findViewById<TextView>(R.id.pettionary_secret).text = "Secret: ???"
-
-            findViewById<View>(R.id.pettionary_card_dim).visibility = View.VISIBLE
-            findViewById<View>(R.id.pettionary_card_text_layout).visibility = View.VISIBLE
+        //Checks the rarity and sets the card and fish images accordingly
+        when (new_pet.getRarity()) {
+            1 -> {
+                findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.one_fish)
+                findViewById<ImageView>(R.id.common_pettionary_card).visibility = View.VISIBLE}
+            2 -> {
+                findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.two_fish)
+                findViewById<ImageView>(R.id.rare_pettionary_card).visibility = View.VISIBLE}
+            3 -> {
+                findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.three_fish)
+                findViewById<ImageView>(R.id.legendary_pettionary_card).visibility = View.VISIBLE}
+            4 -> {
+                findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.four_fish)
+                findViewById<ImageView>(R.id.mystery_pettionary_card).visibility = View.VISIBLE}
+            5 -> {
+                findViewById<ImageView>(R.id.pettionary_rarity_image).setImageResource(R.drawable.five_fish)
+                findViewById<ImageView>(R.id.dev_pettionary_card).visibility = View.VISIBLE}
         }
+
+        findViewById<TextView>(R.id.pettionary_size).text = String.format(Locale.ENGLISH, "Size: %s", sizes[new_pet.getSize()])
+        findViewById<ImageView>(R.id.pettionary_image).setImageDrawable(petSprites[new_pet.pettionaryID-1])
+
+        findViewById<TextView>(R.id.pettionary_flavor).text = "Flavor Text: " + new_pet.flavorText
+        if (displaySecret(new_pet.getRarity(), new_pet.getLevel(), new_pet.getDuplicates()))
+            findViewById<TextView>(R.id.pettionary_secret).text = "Secret: " + new_pet.secret
+        else
+            findViewById<TextView>(R.id.pettionary_secret).text = "Secret: ???"
+
+        findViewById<View>(R.id.pettionary_card_dim).visibility = View.VISIBLE
+        findViewById<View>(R.id.pettionary_card_text_layout).visibility = View.VISIBLE
+        findViewById<View>(R.id.card_exit_button).visibility = View.VISIBLE
+    }
 
     private fun displaySecret(rarity: Int, level: Int, duplicates: Int): Boolean {
-            if (rarity == 1 && level == 5 && duplicates == 100) {
-                return true
-            } else if (rarity == 2 && level == 5 && duplicates == 50) {
-                return true
-            } else if (rarity == 3 && level == 5 && duplicates == 40) {
-                return true
-            } else if (rarity == 4 && level == 5 && duplicates == 30) {
-                return true
-            } else if (rarity == 5 && level == 5 && duplicates == 15){
-                return true
-            } else
-                return false
-        }
+        if (rarity == 1 && level == 5 && duplicates == 100) {
+            return true
+        } else if (rarity == 2 && level == 5 && duplicates == 50) {
+            return true
+        } else if (rarity == 3 && level == 5 && duplicates == 40) {
+            return true
+        } else if (rarity == 4 && level == 5 && duplicates == 30) {
+            return true
+        } else if (rarity == 5 && level == 5 && duplicates == 15){
+            return true
+        } else
+            return false
+    }
 
     override fun onDestroy() {
         super.onDestroy()

@@ -70,7 +70,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_1"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -84,7 +84,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_2"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -106,7 +106,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_3"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -120,7 +120,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_4"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -142,7 +142,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_5"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -156,7 +156,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_6"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -178,7 +178,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_7"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -192,7 +192,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_8"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -214,7 +214,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_9"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
@@ -228,7 +228,7 @@ Date Created: 12/8/2024
             <ImageButton
                 android:id="@+id/multi_buy_frame_10"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"

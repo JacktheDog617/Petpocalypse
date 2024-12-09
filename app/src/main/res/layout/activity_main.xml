@@ -208,9 +208,7 @@
                 android:textAlignment="center"
                 android:textSize="15sp">
             </TextView>
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
     <!-- End Stats -->
 
@@ -276,44 +274,6 @@
             android:visibility="gone"
             app:srcCompat="@drawable/bed_item_1" />
         <!-- End Items -->
-
-        <!-- Cats Placed in Room -->
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:srcCompat="@drawable/thai_room" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:srcCompat="@drawable/keyboard_room" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:srcCompat="@drawable/norwegian_room" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:srcCompat="@drawable/taco_room" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:srcCompat="@drawable/sphynx_room" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:srcCompat="@drawable/munchkin_room" />
-        <!-- End Cats Placed in Room -->
     </FrameLayout>
     <!-- End Main Room -->
 

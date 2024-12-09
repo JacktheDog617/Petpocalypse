@@ -48,8 +48,6 @@ class MyPetsActivity : AppCompatActivity() {
         // set up back button listener
         val backButton: ImageButton = findViewById(R.id.pets_exit_button)
         backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
             finish()
         }
 

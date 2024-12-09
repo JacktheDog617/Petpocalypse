@@ -33,8 +33,6 @@ class RoomEditorActivity : AppCompatActivity() {
         val backButton: ImageButton = findViewById(R.id.editor_exit_button)
         backButton.setOnClickListener {
             musicPlayer.pause()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
             finish()
         }
     }

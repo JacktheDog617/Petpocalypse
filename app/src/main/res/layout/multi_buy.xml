@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#33000000"
-        android:visibility="visible"
+        android:visibility="gone"
         />
 
     <!--Background for display-->
@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHeight_percent="1"
         android:paddingHorizontal="5dp"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:ignore="hardcodedText"
         >
     </ImageView>
@@ -222,6 +222,7 @@
         android:contentDescription="shop exit"
         android:layout_margin="20dp"
         tools:ignore="HardcodedText"
+        android:visibility="gone"
         >
     </ImageButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

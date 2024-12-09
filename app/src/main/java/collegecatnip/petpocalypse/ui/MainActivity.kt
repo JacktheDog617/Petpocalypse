@@ -14,16 +14,23 @@ package collegecatnip.petpocalypse.ui
  */
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.media.SoundPool
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -249,6 +256,56 @@ class MainActivity : AppCompatActivity() {
             if(multipliers[i][2] == 1.0)
             {
                 items[i].visibility = View.VISIBLE
+            }
+        }
+
+        // initialize pet sprites into array for ease of access
+        var petSprites = arrayOf(
+            R.drawable.room_tuxedo,
+            R.drawable.room_tabby,
+            R.drawable.room_orange,
+            R.drawable.room_mainecoon,
+            R.drawable.room_persian,
+            R.drawable.room_russian,
+            R.drawable.room_siamese,
+            R.drawable.room_munchkin,
+            R.drawable.room_scottish,
+            R.drawable.room_sphynx,
+            R.drawable.room_thai,
+            R.drawable.room_ukrainian,
+            R.drawable.room_lykoi,
+            R.drawable.room_norwegian,
+            R.drawable.room_selkirk,
+            R.drawable.room_bread,
+            R.drawable.room_taco,
+            R.drawable.room_plastic,
+            R.drawable.room_keyboard,
+            R.drawable.room_slipper,
+            R.drawable.room_aj,
+            R.drawable.room_noodles,
+            R.drawable.room_marley
+        )
+
+        // find place to add cats
+        val catContainer = findViewById<FrameLayout>(R.id.room_layout)
+
+        // initialize draw cat func
+        fun addCat(pettionaryID: Int) {
+            val imageView = ImageView(this)
+            imageView.setImageResource(petSprites[pettionaryID-1])
+            val layoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT
+            )
+            // Adjust layoutParams as needed based on RoomLayout's structure
+            imageView.layoutParams = layoutParams
+            catContainer.addView(imageView)
+        }
+
+        for(pet in PlayerData.getPetsOwned())
+        {
+            if(pet.isOwned()) {
+                addCat(pet.pettionaryID)
             }
         }
     }

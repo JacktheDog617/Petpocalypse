@@ -178,6 +178,23 @@ class ShopActivity : AppCompatActivity() {
                 handleImageButtonClick(imageButtonId)
             }
         }
+
+        // Dim items already bought
+        for(i in 0 until player.multipliers.size)
+        {
+            if(player.multipliers[i][2] == 1.0)
+            {
+                when(i)
+                {
+                    0 -> findViewById<ImageView>(R.id.buy_bed).setImageResource(R.drawable.bed_dimmed)
+                    1 -> findViewById<ImageView>(R.id.buy_couch).setImageResource(R.drawable.couch_dimmed)
+                    2 -> findViewById<ImageView>(R.id.buy_plant).setImageResource(R.drawable.plant_dimmed)
+                    3 -> findViewById<ImageView>(R.id.buy_rug).setImageResource(R.drawable.rug_dimmed)
+                    4 -> findViewById<ImageView>(R.id.buy_shelf).setImageResource(R.drawable.shelf_dimmed)
+                    5 -> findViewById<ImageView>(R.id.buy_table).setImageResource(R.drawable.table_dimmed)
+                }
+            }
+        }
     }
 
     override fun onStop()
@@ -196,9 +213,8 @@ class ShopActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun handleButtonClick(buttonId: Int) {
         when (buttonId) {
-            R.id.carrier_basic -> {
+            R.id.carrier_basic_money-> {
                 // Handle basic button click
-                System.out.println("Received button press...")
                 var new_pet: Pet = shop.buyBasicPetCarrier()
                 if (new_pet != null)
                     petDisplay(new_pet)
@@ -216,7 +232,7 @@ class ShopActivity : AppCompatActivity() {
                     //If it's being displayed do nothing
                     findViewById<View>(R.id.drop_rate_basic_popup).visibility = View.GONE
             }
-            R.id.carrier_silver -> {
+            R.id.carrier_silver_money -> {
                 // Handle silver button click
                 var new_pet: Pet = shop.buySilverPetCarrier()
                 if (new_pet != null)
@@ -235,7 +251,7 @@ class ShopActivity : AppCompatActivity() {
                 //Display the drop rate
                     findViewById<View>(R.id.drop_rate_silver_popup).visibility = View.VISIBLE
             }
-            R.id.carrier_gold -> {
+            R.id.carrier_gold_money -> {
                 // Handle gold button click
                 var new_pet: Pet = shop.buyGoldPetCarrier()
                 if (new_pet != null)
@@ -340,8 +356,6 @@ class ShopActivity : AppCompatActivity() {
             }
             R.id.shop_exit_button -> {
                 // Handle shop exit button click
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
                 finish()
             }
             R.id.carrier_shop_button -> {

@@ -22,13 +22,6 @@ Patch Notes:
     <!--This includes the shop background that is a separate layout-->
     <include layout="@layout/shop_background" />
 
-    <!--This includes the pettionary display card that is a separate layout
-    This is the same card that is used in the pettionary-->
-    <include layout="@layout/pettionary_display_card" />
-
-    <!--This includes the multi-purchase display card that is a separate layout-->
-    <include layout="@layout/multi_buy" />
-
     <!--Outer layer to make the buttons scroll
     This is the pet carrier layer-->
     <ScrollView
@@ -842,4 +835,11 @@ Patch Notes:
             >
         </ImageButton>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--This includes the pettionary display card that is a separate layout
+    This is the same card that is used in the pettionary-->
+    <include layout="@layout/pettionary_display_card" />
+
+    <!--This includes the multi-purchase display card that is a separate layout-->
+    <include layout="@layout/multi_buy" />
 </FrameLayout>

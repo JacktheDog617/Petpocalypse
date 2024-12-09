@@ -279,7 +279,7 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
-                var bed = shop.buyRoomItem(0)
+                val bed = shop.buyRoomItem(0)
                 if (bed)
                     findViewById<ImageView>(R.id.buy_bed).setImageResource(R.drawable.bed_dimmed)
                 else{
@@ -299,7 +299,7 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
-                var couch = shop.buyRoomItem(1)
+                val couch = shop.buyRoomItem(1)
                 if (couch)
                     findViewById<ImageView>(R.id.buy_couch).setImageResource(R.drawable.couch_dimmed)
                 else{
@@ -319,7 +319,7 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
-                var plant = shop.buyRoomItem(2)
+                val plant = shop.buyRoomItem(2)
                 if (plant)
                     findViewById<ImageView>(R.id.buy_plant).setImageResource(R.drawable.plant_dimmed)
                 else{
@@ -339,7 +339,7 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
-                var rug = shop.buyRoomItem(3)
+                val rug = shop.buyRoomItem(3)
                 if (rug)
                     findViewById<ImageView>(R.id.buy_rug).setImageResource(R.drawable.rug_dimmed)
                 else{
@@ -359,7 +359,7 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
-                var shelf = shop.buyRoomItem(4)
+                val shelf = shop.buyRoomItem(4)
                 if (shelf)
                     findViewById<ImageView>(R.id.buy_shelf).setImageResource(R.drawable.shelf_dimmed)
                 else{
@@ -379,7 +379,7 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
-                var table = shop.buyRoomItem(5)
+                val table = shop.buyRoomItem(5)
                 if (table)
                     findViewById<ImageView>(R.id.buy_table).setImageResource(R.drawable.table_dimmed)
                 else{
@@ -471,6 +471,7 @@ class ShopActivity : AppCompatActivity() {
                 findViewById<View>(R.id.multi_buy_dim).visibility = View.GONE
                 findViewById<View>(R.id.multi_back).visibility = View.GONE
                 findViewById<View>(R.id.multi_buy_frames).visibility = View.GONE
+                findViewById<View>(R.id.multi_buy_exit_button).visibility = View.GONE
                 getting.clear()
                 gettingId.clear()
             }
@@ -561,10 +562,14 @@ class ShopActivity : AppCompatActivity() {
     }
 
     private fun runMultiplePurchase(tier: Int) {
+        var new_pet: Pet
+        getting = mutableListOf()
+        gettingId = ArrayList()
+
         //Basic Tier
         if (tier == 1){
             //Check for money
-            if (player.getLove() <= 1000) {
+            if (player.getLove() <=1000) {
                 findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                 Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 return
@@ -572,7 +577,8 @@ class ShopActivity : AppCompatActivity() {
 
             //Run the purchase add images to mutablelist and pets to the arraylist
             for (i in 1..10) {
-                var new_pet: Pet = shop.buyBasicPetCarrier()
+                new_pet = shop.buyBasicPetCarrier()
+                System.out.println(new_pet.getPettionaryID())
                 getting.add(petFrames[new_pet.getPettionaryID()-1])
                 gettingId.add(new_pet)
             }
@@ -581,7 +587,7 @@ class ShopActivity : AppCompatActivity() {
         }
         else if (tier == 2){
             //Check for money
-            if (player.getLove() >= 2000) {
+            if (player.getLove() <= 2000) {
                 findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                 Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 return
@@ -589,7 +595,7 @@ class ShopActivity : AppCompatActivity() {
 
             //Run the purchase add images to mutablelist and pets to the arraylist
             for (i in 1..10) {
-                var new_pet: Pet = shop.buySilverPetCarrier()
+                new_pet = shop.buySilverPetCarrier()
                 getting.add(petFrames[new_pet.getPettionaryID()-1])
                 gettingId.add(new_pet)
             }
@@ -598,7 +604,7 @@ class ShopActivity : AppCompatActivity() {
         }
         else if (tier == 3){
             //Check for money
-            if (player.getLove() >= 3000) {
+            if (player.getLove() <= 3000) {
                 findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                 Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 return
@@ -606,7 +612,7 @@ class ShopActivity : AppCompatActivity() {
 
             //Run the purchase add images to mutablelist and pets to the arraylist
             for (i in 1..10) {
-                var new_pet: Pet = shop.buyGoldPetCarrier()
+                new_pet = shop.buyGoldPetCarrier()
                 getting.add(petFrames[new_pet.getPettionaryID()-1])
                 gettingId.add(new_pet)
             }
@@ -618,10 +624,10 @@ class ShopActivity : AppCompatActivity() {
     }
 
     private fun displayMultiple(getting: MutableList<Drawable>) {
-        findViewById<ImageView>(R.id.multi_buy_dim).visibility = View.VISIBLE
+        findViewById<View>(R.id.multi_buy_dim).visibility = View.VISIBLE
         findViewById<ImageView>(R.id.multi_back).visibility = View.VISIBLE
         findViewById<View>(R.id.multi_buy_frames).visibility = View.VISIBLE
-        findViewById<View>(R.id.multi_buy_exit_button).visibility = View.VISIBLE
+        findViewById<ImageView>(R.id.multi_buy_exit_button).visibility = View.VISIBLE
 
         findViewById<ImageButton>(R.id.multi_buy_frame_1).setImageDrawable(getting[0])
         findViewById<ImageButton>(R.id.multi_buy_frame_2).setImageDrawable(getting[1])

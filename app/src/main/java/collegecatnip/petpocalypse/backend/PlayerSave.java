@@ -1,14 +1,16 @@
 package collegecatnip.petpocalypse.backend;
 /**
- * Manage the saving of PlayerData to and from json and makes a new player giving it a random 
- * pet to start the game off with.
+ * Manage the saving of PlayerData to and from json and reads the Pets in the Json file into an array.
+ * This class is able to load the pet array to and from the json file aswell.
+ * Also makes a new player giving it a random pet to start the game off with.
  * @author Madison Ridore
  * Date Created: 11/18/2024
  *    Imported necessary implementations to 
  *         - Make an array to save the pets into 
  *         - a file reader to read the json file the pets were saved into 
  *         - catch and present any syntax errors etc.
- *  
+ * Last Modified: 11/23/2024
+ *    Made a Save Manager system and combined it with this class 
  * 
  * @author Jaime Lee
  * Last Modified: 12/4/2024

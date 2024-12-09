@@ -19,7 +19,6 @@ Patch Notes:
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.os.Handler
@@ -30,7 +29,6 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.os.HandlerCompat.postDelayed
 import collegecatnip.petpocalypse.R
 import collegecatnip.petpocalypse.backend.Pet
 import collegecatnip.petpocalypse.backend.PlayerData
@@ -403,6 +401,7 @@ class ShopActivity : AppCompatActivity() {
                 findViewById<View>(R.id.legendary_pettionary_card).visibility = View.GONE
                 findViewById<View>(R.id.mystery_pettionary_card).visibility = View.GONE
                 findViewById<View>(R.id.dev_pettionary_card).visibility = View.GONE
+                findViewById<View>(R.id.card_exit_button).visibility = View.GONE
             }
             R.id.multi_buy_exit_button -> {
                 // Handle multi buy exit button click
@@ -480,6 +479,7 @@ class ShopActivity : AppCompatActivity() {
 
         findViewById<View>(R.id.pettionary_card_dim).visibility = View.VISIBLE
         findViewById<View>(R.id.pettionary_card_text_layout).visibility = View.VISIBLE
+        findViewById<View>(R.id.card_exit_button).visibility = View.VISIBLE
     }
 
     private fun displaySecret(rarity: Int, level: Int, duplicates: Int): Boolean {
@@ -558,6 +558,7 @@ class ShopActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.multi_buy_dim).visibility = View.VISIBLE
         findViewById<ImageView>(R.id.multi_back).visibility = View.VISIBLE
         findViewById<View>(R.id.multi_buy_frames).visibility = View.VISIBLE
+        findViewById<View>(R.id.multi_buy_exit_button).visibility = View.VISIBLE
 
         findViewById<ImageButton>(R.id.multi_buy_frame_1).setImageDrawable(getting[0])
         findViewById<ImageButton>(R.id.multi_buy_frame_2).setImageDrawable(getting[1])

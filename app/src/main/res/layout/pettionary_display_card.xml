@@ -174,7 +174,7 @@ Patch Notes:
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/overlock_black"
                     android:text="Bread Cat"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textColor="@color/black"
                     tools:ignore="HardcodedText"
                     >
@@ -255,7 +255,7 @@ Patch Notes:
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight=".5"
+            android:layout_weight=".3"
             >
 
             <!--Display the Flavor Text-->
@@ -263,10 +263,11 @@ Patch Notes:
                 android:id="@+id/pettionary_flavor"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".5"
+                android:layout_weight=".7"
                 android:fontFamily="@font/overlock_black"
                 android:text="Flavor: It is a cat with it's face in some bread."
-                android:textSize="25sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="10sp"
                 android:textColor="@color/black"
                 tools:ignore="HardcodedText,NestedWeights"
                 >
@@ -277,9 +278,11 @@ Patch Notes:
                 android:id="@+id/pettionary_secret"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight=".5"
+                android:layout_weight=".3"
                 android:fontFamily="@font/overlock_black"
-                android:textSize="25sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeMinTextSize="10sp"
                 android:textColor="@color/black"
                 android:text="Secret:???"
                 tools:ignore="HardcodedText"
@@ -297,9 +300,10 @@ Patch Notes:
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pettionary_card_text_layout"
         android:contentDescription="shop exit"
-        android:layout_margin="20dp"
+        android:layout_margin="60dp"
         android:visibility="gone"
         tools:ignore="HardcodedText"
         >

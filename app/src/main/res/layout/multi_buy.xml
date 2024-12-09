@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+The base for the pettionary display card
+also used when displaying newly received pets in the shop
+
+@author Kendall Devich
+Date Created: 12/8/2024
+
+-->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,189 +30,216 @@
         android:src="@drawable/drop_rate_backdrop"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:scaleType="fitCenter"
+        android:scaleType="fitXY"
         android:contentDescription="Background for Common Pettionary Card"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHeight_percent="1"
+        app:layout_constraintHeight_percent=".75"
         android:paddingHorizontal="5dp"
         android:visibility="gone"
         tools:ignore="hardcodedText"
         >
     </ImageView>
+
+
+    <!--Vertical Layout to hold the horizontal layouts-->
     <LinearLayout
         android:id="@+id/multi_buy_frames"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="@id/multi_back"
+        app:layout_constraintBottom_toBottomOf="@id/multi_back"
+        app:layout_constraintEnd_toEndOf="@id/multi_back"
+        app:layout_constraintStart_toStartOf="@id/multi_back"
+        app:layout_constraintHeight_percent=".75"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="20dp"
+        android:visibility="gone"
         >
 
-        <!--Spacer-->
-        <include layout="@layout/spacer_100" />
-
-        <!--Left Column of frames-->
+        <!--First Row of cards-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight=".5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             >
-
-            <!--Top Card-->
+            <!--Left Card-->
             <ImageButton
                 android:id="@+id/multi_buy_frame_1"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/blank_frame"
-                android:padding="3dp"
-                android:layout_weight=".2"
-                android:background="@android:color/transparent"
-                android:contentDescription="Frame 1 that display lootbox winning"
-                tools:ignore="HardcodedText,NestedWeights"
-                >
-            </ImageButton>
-            <!--Second Card-->
-            <ImageButton
-                android:id="@+id/multi_buy_frame_3"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/blank_frame"
-                android:padding="3dp"
-                android:layout_weight=".2"
-                android:background="@android:color/transparent"
-                android:contentDescription="Frame 3 that display lootbox winning"
-                tools:ignore="HardcodedText"
-                >
-            </ImageButton>
-            <!--Third Card-->
-            <ImageButton
-                android:id="@+id/multi_buy_frame_5"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/blank_frame"
-                android:padding="3dp"
-                android:layout_weight=".2"
-                android:background="@android:color/transparent"
-                android:contentDescription="Frame 5 that display lootbox winning"
-                tools:ignore="HardcodedText"
-                >
-            </ImageButton>
-            <!--Fourth Card-->
-            <ImageButton
-                android:id="@+id/multi_buy_frame_7"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:contentDescription="Frame 7 that display lootbox winning"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #1"
                 tools:ignore="HardcodedText"
                 >
             </ImageButton>
-            <!--Bottom Card-->
+            <!--Right Card-->
             <ImageButton
-                android:id="@+id/multi_buy_frame_9"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:id="@+id/multi_buy_frame_2"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:contentDescription="Frame 9 that display lootbox winning"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #2"
                 tools:ignore="HardcodedText"
                 >
             </ImageButton>
         </LinearLayout>
 
-        <!--Right Column of frames-->
+        <!--Second Row of cards-->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             >
-            <!--Spacer-->
-            <include layout="@layout/spacer_100" />
-
-            <!--Top Card-->
+            <!--Left Card-->
             <ImageButton
-                android:id="@+id/multi_buy_frame_2"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:id="@+id/multi_buy_frame_3"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:contentDescription="Frame 2 that display lootbox winning"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #3"
                 tools:ignore="HardcodedText"
                 >
             </ImageButton>
-            <!--Second Card-->
+            <!--Right Card-->
             <ImageButton
                 android:id="@+id/multi_buy_frame_4"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:contentDescription="Frame 4 that display lootbox winning"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #4"
                 tools:ignore="HardcodedText"
                 >
             </ImageButton>
-            <!--Third Card-->
+        </LinearLayout>
+
+        <!--Third Row of cards-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <!--Left Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_5"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #5"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Right Card-->
             <ImageButton
                 android:id="@+id/multi_buy_frame_6"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:contentDescription="Frame 6 that display lootbox winning"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #6"
                 tools:ignore="HardcodedText"
                 >
             </ImageButton>
-            <!--Fourth Card-->
+        </LinearLayout>
+
+        <!--Fourth Row of cards-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <!--Left Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_7"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #7"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Right Card-->
             <ImageButton
                 android:id="@+id/multi_buy_frame_8"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:contentDescription="Frame 8 that display lootbox winning"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #8"
                 tools:ignore="HardcodedText"
                 >
             </ImageButton>
-            <!--Bottom Card-->
+        </LinearLayout>
+
+        <!--Fifth Row of cards-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <!--Left Card-->
+            <ImageButton
+                android:id="@+id/multi_buy_frame_9"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/blank_frame"
+                android:padding="3dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #9"
+                tools:ignore="HardcodedText"
+                >
+            </ImageButton>
+            <!--Right Card-->
             <ImageButton
                 android:id="@+id/multi_buy_frame_10"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="0dp"
+                android:layout_height="125dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/blank_frame"
                 android:padding="3dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:contentDescription="Frame 10 that display lootbox winning"
+                android:contentDescription="Frame that can hold cat with Pettionary ID #10"
                 tools:ignore="HardcodedText"
                 >
             </ImageButton>
+
+
         </LinearLayout>
     </LinearLayout>
 
@@ -218,7 +255,8 @@
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/multi_back"
         android:contentDescription="shop exit"
         android:layout_margin="20dp"
         tools:ignore="HardcodedText"

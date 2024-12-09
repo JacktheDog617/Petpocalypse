@@ -168,19 +168,20 @@ public class Shop {
     public boolean buyRoomItem(int itemID)
     {
         int this_item_cost = ROOM_ITEM_COST + (ROOM_ITEM_COST * (itemsOwned * itemsOwned));
+        System.out.println("Item Cost: " + this_item_cost);
 
         if (playerData.getLove() >= this_item_cost) {
             playerData.setLove(playerData.getLove() - this_item_cost);
 
             playerData.toggleMultiplier(itemID, 1);
 
+            System.out.println("You bought a room item!");
             return true;
-            //System.out.println("You bought a room item!");
         } else {
+            System.out.println("Not enough Love to buy a room item!");
+            long remaining = this_item_cost - playerData.getLove();
+            System.out.println(remaining + " more love is needed to buy a room item.");
             return false;
-            //System.out.println("Not enough Love to buy a room item!");
-            //long remaining = ROOM_ITEM_COST - playerData.getLove();
-            //System.out.println(remaining + " more love is needed to buy a room item.");
         }
 
     }

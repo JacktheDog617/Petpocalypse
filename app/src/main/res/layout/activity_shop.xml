@@ -795,6 +795,7 @@ Patch Notes:
 
             <!--Text for error message-->
             <TextView
+                android:id="@+id/shop_error_message_text"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:text="Insufficient \nMoney!"

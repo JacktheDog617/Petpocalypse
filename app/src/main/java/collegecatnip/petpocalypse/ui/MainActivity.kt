@@ -48,6 +48,10 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
+    // global values
+    private var loveNum: Long = 0
+    private var treatsNum: Int = 0
+
     // Sounds
     private lateinit var musicPlayer: MediaPlayer
     private lateinit var sfxPlayer: SoundPool
@@ -59,8 +63,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Load player data
-        var save = PlayerSave(getApplicationContext(), 2)
+        // No int for no presave
+        /*
+        1 = new save
+        2 = partial filled save
+        3 = finished game state
+         */
+        var save = PlayerSave(getApplicationContext(), 1)
         var playerData = PlayerData()
+
+        playerData.love = 1100
 
         // Handle insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { view, windowInsets ->
@@ -85,9 +97,17 @@ class MainActivity : AppCompatActivity() {
         burgerboi.setOnClickListener {
             // play button noise
             sfxPlayer.play(buttonClick, 1f, 1f, 0, 0, 1f)
-            val cardView = findViewById<View>(R.id.dropdown)
+            var cardView = findViewById<View>(R.id.dropdown)
             if (cardView.visibility == View.VISIBLE) {
                 cardView.visibility = View.GONE
+                cardView = findViewById<View>(R.id.credits)
+                if (cardView.visibility == View.VISIBLE) {
+                    cardView.visibility = View.GONE
+                }
+                cardView = findViewById<View>(R.id.stats)
+                if (cardView.visibility == View.VISIBLE) {
+                    cardView.visibility = View.GONE
+                }
             } else {
                 cardView.visibility = View.VISIBLE
             }
@@ -189,8 +209,8 @@ class MainActivity : AppCompatActivity() {
         var treatsCounter: TextView = findViewById(R.id.treats_counter)
 
         // Update love and treat counters
-        var loveNum: Long = playerData.getLove();
-        var treatsNum: Int = playerData.getTreats();
+        loveNum = playerData.getLove();
+        treatsNum = playerData.getTreats();
 
         // Calculate income
         var incomeCalc = IncomeCalculator();
@@ -205,6 +225,7 @@ class MainActivity : AppCompatActivity() {
             while (isActive) {
                 delay(1000)
                 loveNum += incomeIncrease; // Increment currency
+                playerData.setLove(loveNum); // Save currency
                 withContext(Dispatchers.Main) {
                     if (loveNum / 1000 < 1) // if under 1000
                     {                       // show user 1000
@@ -238,6 +259,11 @@ class MainActivity : AppCompatActivity() {
     override fun onStart()
     {
         super.onStart()
+
+        // update any currency changes
+        var playerData = PlayerData()
+        loveNum = playerData.getLove()
+        treatsNum = playerData.getTreats()
 
         var items = arrayOf(
             findViewById<ImageView>(R.id.item0),

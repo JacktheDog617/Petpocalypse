@@ -193,6 +193,9 @@ class ShopActivity : AppCompatActivity() {
                 }
             }
         }
+
+        // adjust prices according to how many items owned
+        adjustItemPrices()
     }
 
     override fun onStop()
@@ -270,6 +273,12 @@ class ShopActivity : AppCompatActivity() {
             }
             R.id.buy_bed_button -> {
                 // Handle buy bed button click
+                if(player.multipliers[0][2] == 1.0)
+                {
+                    findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
+                    findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
+                    Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
+                }
                 var bed = shop.buyRoomItem(0)
                 if (bed)
                     findViewById<ImageView>(R.id.buy_bed).setImageResource(R.drawable.bed_dimmed)
@@ -277,9 +286,19 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
+                if (bed)
+                {
+                    adjustItemPrices()
+                }
             }
             R.id.buy_couch_button -> {
                 // Handle buy couch button click
+                if(player.multipliers[1][2] == 1.0)
+                {
+                    findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
+                    findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
+                    Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
+                }
                 var couch = shop.buyRoomItem(1)
                 if (couch)
                     findViewById<ImageView>(R.id.buy_couch).setImageResource(R.drawable.couch_dimmed)
@@ -287,9 +306,19 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
+                if (couch)
+                {
+                    adjustItemPrices()
+                }
             }
             R.id.buy_plant_button -> {
                 // Handle buy plant button click
+                if(player.multipliers[2][2] == 1.0)
+                {
+                    findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
+                    findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
+                    Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
+                }
                 var plant = shop.buyRoomItem(2)
                 if (plant)
                     findViewById<ImageView>(R.id.buy_plant).setImageResource(R.drawable.plant_dimmed)
@@ -297,9 +326,19 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
+                if (plant)
+                {
+                    adjustItemPrices()
+                }
             }
             R.id.buy_rug_button -> {
                 // Handle buy rug button click
+                if(player.multipliers[3][2] == 1.0)
+                {
+                    findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
+                    findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
+                    Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
+                }
                 var rug = shop.buyRoomItem(3)
                 if (rug)
                     findViewById<ImageView>(R.id.buy_rug).setImageResource(R.drawable.rug_dimmed)
@@ -307,9 +346,19 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
+                if (rug)
+                {
+                    adjustItemPrices()
+                }
             }
             R.id.buy_shelf_button -> {
                 // Handle buy shelf button click
+                if(player.multipliers[4][2] == 1.0)
+                {
+                    findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
+                    findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
+                    Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
+                }
                 var shelf = shop.buyRoomItem(4)
                 if (shelf)
                     findViewById<ImageView>(R.id.buy_shelf).setImageResource(R.drawable.shelf_dimmed)
@@ -317,15 +366,29 @@ class ShopActivity : AppCompatActivity() {
                     findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 }
+                if (shelf)
+                {
+                    adjustItemPrices()
+                }
             }
             R.id.buy_table_button -> {
                 // Handle buy table button click
+                if(player.multipliers[5][2] == 1.0)
+                {
+                    findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
+                    findViewById<TextView>(R.id.shop_error_message_text).text = "You already have this item!"
+                    Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
+                }
                 var table = shop.buyRoomItem(5)
                 if (table)
                     findViewById<ImageView>(R.id.buy_table).setImageResource(R.drawable.table_dimmed)
                 else{
                     findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                     Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
+                }
+                if (table)
+                {
+                    adjustItemPrices()
                 }
             }
         }
@@ -501,7 +564,7 @@ class ShopActivity : AppCompatActivity() {
         //Basic Tier
         if (tier == 1){
             //Check for money
-            if (player.getLove() >= 1000) {
+            if (player.getLove() <= 1000) {
                 findViewById<View>(R.id.shop_error_message).visibility = View.VISIBLE
                 Handler(Looper.getMainLooper()).postDelayed({findViewById<View>(R.id.shop_error_message).visibility = View.GONE }, 2500)
                 return
@@ -571,5 +634,25 @@ class ShopActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.multi_buy_frame_9).setImageDrawable(getting[8])
         findViewById<ImageButton>(R.id.multi_buy_frame_10).setImageDrawable(getting[9])
 
+    }
+
+    private fun adjustItemPrices()
+    {
+        val ROOM_ITEM_COST = 100;
+        var itemsOwned = 0;
+        for(i in 0 until player.multipliers.size)
+        {
+            if(player.multipliers[i][2] == 1.0)
+            {
+                itemsOwned++;
+            }
+        }
+        var this_item_cost = ROOM_ITEM_COST + (ROOM_ITEM_COST * (itemsOwned * itemsOwned));
+        findViewById<TextView>(R.id.buy_bed_button).text = String.format(Locale.ENGLISH, "Buy 1x = %d", this_item_cost)
+        findViewById<TextView>(R.id.buy_couch_button).text = String.format(Locale.ENGLISH, "Buy 1x = %d", this_item_cost)
+        findViewById<TextView>(R.id.buy_plant_button).text = String.format(Locale.ENGLISH, "Buy 1x = %d", this_item_cost)
+        findViewById<TextView>(R.id.buy_rug_button).text = String.format(Locale.ENGLISH, "Buy 1x = %d", this_item_cost)
+        findViewById<TextView>(R.id.buy_shelf_button).text = String.format(Locale.ENGLISH, "Buy 1x = %d", this_item_cost)
+        findViewById<TextView>(R.id.buy_table_button).text = String.format(Locale.ENGLISH, "Buy 1x = %d", this_item_cost)
     }
 }

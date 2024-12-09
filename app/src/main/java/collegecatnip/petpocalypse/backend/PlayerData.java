@@ -1,9 +1,11 @@
 package collegecatnip.petpocalypse.backend;
 /**
- * a class that acquires players data that is kept in their profile
+ * PlayerData is the central part where the player can hold and display their pets
+ * save their name and userID into a save array, which will be transported to the PlayerSave.
  *
  * @author Madison Ridore
  * Date Created: 9/23/2024
+ * 
  * 
  * Date Last Modified: 11/29/2024
  *      moved multiplier array to PlayerData

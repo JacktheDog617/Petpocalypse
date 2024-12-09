@@ -8,7 +8,7 @@ package collegecatnip.petpocalypse.backend;
  *     - Added the give basic pet method 
  *     - Made the buyPet method
  *     - Made an error exception just in case the json file wont load it will throw an exception
- *     - Made a ToString to display the cat details 
+ *     - Added the display the cat details method
  *
  * @author Jaime Lee
  * Last Modified: 11/29/2024

@@ -42,20 +42,6 @@ class PettionaryActivity : AppCompatActivity() {
         musicPlayer.isLooping = true
         musicPlayer.start()
 
-        //Array of image button ids to loop through to set click listeners
-        imageButtonIds = arrayOf(
-            R.id.pettionary_secret_button,
-            R.id.pettionary_exit_button,
-            R.id.card_exit_button
-        )
-
-        //Loop through the image button ids and set click listeners & image displays
-        for (imageButtonId in imageButtonIds) {
-            findViewById<ImageButton>(imageButtonId).setOnClickListener {
-                handleImageButtonClick(imageButtonId)
-            }
-        }
-
         //Array of pet card ids
         val petCards = arrayOf(
             R.id.pettionary_card_1,
@@ -180,6 +166,20 @@ class PettionaryActivity : AppCompatActivity() {
                 findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petSprites[R.id.pettionary_number-1])
             else
                 findViewById<ImageButton>(R.id.pettionary_image).setImageDrawable(petReal[R.id.pettionary_number-1])
+        }
+
+        //Array of image button ids to loop through to set click listeners
+        imageButtonIds = arrayOf(
+            R.id.pettionary_secret_button,
+            R.id.pettionary_exit_button,
+            R.id.card_exit_button
+        )
+
+        //Loop through the image button ids and set click listeners & image displays
+        for (imageButtonId in imageButtonIds) {
+            findViewById<ImageButton>(imageButtonId).setOnClickListener {
+                handleImageButtonClick(imageButtonId)
+            }
         }
     }
 

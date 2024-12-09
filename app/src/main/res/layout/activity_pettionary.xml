@@ -28,7 +28,7 @@ Patch Notes:
         tools:ignore="HardcodedText"
         >
     </ImageView>
-
+    
     <!--Scroll View for scrolling purposes-->
     <ScrollView
         android:id="@+id/pettionary_scroll_view"
@@ -494,4 +494,8 @@ Patch Notes:
         tools:ignore="HardcodedText"
         >
     </ImageButton>
+
+    <!--Include Pettionary Card Layout-->
+    <include layout="@layout/pettionary_display_card" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
